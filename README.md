@@ -1,20 +1,20 @@
 # AI-Based Skin Disease Detection with Treatment Cost Estimation
 ## Download trained models and complete project
 
-The source is on `main`. GitHub Release [v1.0.0](https://github.com/NAIFEKHAN/Skin-Disease-Detection/releases/tag/v1.0.0) contains the four trained model checkpoints and `Skin-Disease-Detection-v1.0.0-complete.zip`. To run inference from a source checkout, download `unet_model.pth` and `vit_model.pth` into `models/`. The two `common_skin_*.pth` checkpoints are experimental and are currently disabled in the deployed application.
+The source is on `main`. GitHub Release [v1.0.0](https://github.com/NAIFEKHAN/Skin-Disease-Detection/releases/tag/v1.0.0) contains the two active trained model checkpoints and `Skin-Disease-Detection-v1.0.0-complete.zip`. To run inference from a source checkout, download `unet_model.pth` and `vit_model.pth` into `models/`. The common skin classifiers are experimental and are currently disabled in the deployed application.
 
-The release archive includes the source and all four checkpoints. It excludes credentials, patient uploads and reports, databases, raw datasets, local environments, and caches.
+The release archive includes the source and both active checkpoints. It excludes credentials, patient uploads and reports, databases, raw datasets, local environments, and caches.
 
 An integrated deep learning and image processing decision-support platform designed to classify dermatological lesions, evaluate condition severity, and predict treatment cost breakdowns (INR) to promote healthcare transparency and early clinical screening.
 
 ---
 
-## âš ï¸ Medical Disclaimer
+## Ã¢Å¡Â Ã¯Â¸Â Medical Disclaimer
 > **IMPORTANT:** This system is an academic and educational research project. It does **NOT** provide a formal medical diagnosis and is **NOT** a replacement for a certified dermatologist or qualified healthcare professional. It is intended strictly as a preliminary screening decision-support aid. Always seek professional clinical diagnosis for skin concerns.
 
 ---
 
-## ðŸ› ï¸ Technology Stack
+## Ã°Å¸â€ºÂ Ã¯Â¸Â Technology Stack
 
 - **Backend:** Python 3.11, FastAPI, Uvicorn
 - **Deep Learning & Computer Vision:** PyTorch, torchvision, timm (Vision Transformers), OpenCV
@@ -26,68 +26,68 @@ An integrated deep learning and image processing decision-support platform desig
 
 ---
 
-## ðŸ“ Project Directory Structure
+## Ã°Å¸â€œÂ Project Directory Structure
 
 ```text
 CP-1/
-â”œâ”€â”€ data/                                 # Datasets, manifests, and persistent database
-â”‚   â”œâ”€â”€ classification/
-â”‚   â”‚   â””â”€â”€ images/                       # 1,757 genuine dermoscopic images (.gitignore)
-â”‚   â”œâ”€â”€ segmentation/
-â”‚   â”‚   â”œâ”€â”€ images/                       # 1,000 genuine paired dermoscopic images (.gitignore)
-â”‚   â”‚   â””â”€â”€ masks/                        # 1,000 expert-annotated binary masks (.gitignore)
-â”‚   â”œâ”€â”€ manifests/                        # Reproducible split manifests (tracked)
-â”‚   â”‚   â”œâ”€â”€ classification_train.csv      # 1,233 samples (70.2%)
-â”‚   â”‚   â”œâ”€â”€ classification_val.csv        # 267 samples (15.2%)
-â”‚   â”‚   â”œâ”€â”€ classification_test.csv       # 257 samples (14.6%)
-â”‚   â”‚   â”œâ”€â”€ segmentation_train.csv        # 700 pairs (70.0%)
-â”‚   â”‚   â”œâ”€â”€ segmentation_val.csv          # 150 pairs (15.0%)
-â”‚   â”‚   â”œâ”€â”€ segmentation_test.csv         # 150 pairs (15.0%)
-â”‚   â”‚   â””â”€â”€ dataset_summary.json          # Pipeline statistics & leakage verification
-â”‚   â”œâ”€â”€ skin_disease.db                   # SQLite database (migrated with attention_map_path)
-â”‚   â””â”€â”€ .gitkeep
-â”œâ”€â”€ frontend/                             # Web interface
-â”‚   â”œâ”€â”€ css/
-â”‚   â”‚   â””â”€â”€ style.css                     # Forest green and white theme styles
-â”‚   â”œâ”€â”€ js/
-â”‚   â”‚   â””â”€â”€ app.js                        # Client interactions, health check & history loader
-â”‚   â”œâ”€â”€ history.html                      # Analysis history view (standardized /api/history)
-â”‚   â””â”€â”€ index.html                        # Main dashboard & medical disclaimer
-â”œâ”€â”€ models/                               # ViT and U-Net model architecture definitions
-â”‚   â””â”€â”€ __init__.py
-â”œâ”€â”€ reports/                              # Generated PDF diagnostic reports
-â”‚   â””â”€â”€ .gitkeep
-â”œâ”€â”€ services/                             # Business logic & image preprocessing
-â”‚   â”œâ”€â”€ __init__.py
-â”‚   â”œâ”€â”€ attention.py                      # ViT Attention Rollout Explainable AI (XAI) service
-â”‚   â”œâ”€â”€ cost_estimation.py               # Benchmark Indian treatment cost estimation engine (INR)
-â”‚   â”œâ”€â”€ preprocessing.py                  # DullRazor, ViT & U-Net preprocessors, augmentation
-â”‚   â”œâ”€â”€ prediction.py                     # ViT-B/16 inference, probability distribution & top-3
-â”‚   â”œâ”€â”€ report.py                         # ReportLab comprehensive PDF medical report compiler
-â”‚   â”œâ”€â”€ segmentation.py                   # U-Net lesion segmentation inference service (threshold 0.70)
-â”‚   â””â”€â”€ severity.py                       # Rule-based clinical prototype severity indicator
-â”œâ”€â”€ data/
-â”‚   â”œâ”€â”€ treatment_costs.json              # Indicative treatment cost bands (INR) across 5 care tiers
-â”‚   â””â”€â”€ ...
-â”œâ”€â”€ training/                             # Training datasets, pipelines & evaluators
-â”‚   â”œâ”€â”€ __init__.py
-â”‚   â”œâ”€â”€ dataset.py                        # PyTorch Dataset classes, DataLoaders & class weights
-â”‚   â””â”€â”€ prepare_datasets.py               # Dataset sampler, split generator & S3 downloader
-â”œâ”€â”€ uploads/                              # Stored uploaded skin lesion images
-â”‚   â””â”€â”€ .gitkeep
-â”œâ”€â”€ .gitignore                            # Excludes venv, large images, DB, weights & caches
-â”œâ”€â”€ database.py                           # SQLite schema, migrations & CRUD operations
-â”œâ”€â”€ main.py                               # FastAPI routes (/health, /api/history, static)
-â”œâ”€â”€ README.md                             # Comprehensive project documentation
-â”œâ”€â”€ requirements.txt                      # Pinned Python dependencies
-â””â”€â”€ test_phase2.py                        # Automated 9-test verification suite
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ data/                                 # Datasets, manifests, and persistent database
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ classification/
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ images/                       # 1,757 genuine dermoscopic images (.gitignore)
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ segmentation/
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ images/                       # 1,000 genuine paired dermoscopic images (.gitignore)
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ masks/                        # 1,000 expert-annotated binary masks (.gitignore)
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ manifests/                        # Reproducible split manifests (tracked)
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ classification_train.csv      # 1,233 samples (70.2%)
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ classification_val.csv        # 267 samples (15.2%)
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ classification_test.csv       # 257 samples (14.6%)
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ segmentation_train.csv        # 700 pairs (70.0%)
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ segmentation_val.csv          # 150 pairs (15.0%)
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ segmentation_test.csv         # 150 pairs (15.0%)
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ dataset_summary.json          # Pipeline statistics & leakage verification
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ skin_disease.db                   # SQLite database (migrated with attention_map_path)
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ .gitkeep
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ frontend/                             # Web interface
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ css/
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ style.css                     # Forest green and white theme styles
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ js/
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ app.js                        # Client interactions, health check & history loader
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ history.html                      # Analysis history view (standardized /api/history)
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ index.html                        # Main dashboard & medical disclaimer
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ models/                               # ViT and U-Net model architecture definitions
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ __init__.py
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ reports/                              # Generated PDF diagnostic reports
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ .gitkeep
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ services/                             # Business logic & image preprocessing
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ __init__.py
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ attention.py                      # ViT Attention Rollout Explainable AI (XAI) service
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ cost_estimation.py               # Benchmark Indian treatment cost estimation engine (INR)
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ preprocessing.py                  # DullRazor, ViT & U-Net preprocessors, augmentation
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ prediction.py                     # ViT-B/16 inference, probability distribution & top-3
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ report.py                         # ReportLab comprehensive PDF medical report compiler
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ segmentation.py                   # U-Net lesion segmentation inference service (threshold 0.70)
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ severity.py                       # Rule-based clinical prototype severity indicator
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ data/
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ treatment_costs.json              # Indicative treatment cost bands (INR) across 5 care tiers
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ ...
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ training/                             # Training datasets, pipelines & evaluators
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ __init__.py
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ dataset.py                        # PyTorch Dataset classes, DataLoaders & class weights
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ prepare_datasets.py               # Dataset sampler, split generator & S3 downloader
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ uploads/                              # Stored uploaded skin lesion images
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ .gitkeep
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ .gitignore                            # Excludes venv, large images, DB, weights & caches
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ database.py                           # SQLite schema, migrations & CRUD operations
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ main.py                               # FastAPI routes (/health, /api/history, static)
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ README.md                             # Comprehensive project documentation
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ requirements.txt                      # Pinned Python dependencies
+Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ test_phase2.py                        # Automated 9-test verification suite
 ```
 
 ---
 
-## ðŸ“Š Dataset Specifications (Phase 2)
+## Ã°Å¸â€œÅ  Dataset Specifications (Phase 2)
 
-### 1. Classification Dataset â€” HAM10000
+### 1. Classification Dataset Ã¢â‚¬â€ HAM10000
 - **Source:** Harvard Dataverse (`doi:10.7910/DVN/DBW86T`) / Official ISIC Archive AWS S3 Mirror.
 - **License:** Creative Commons Attribution-NonCommercial (CC BY-NC 4.0) / CC-0.
 - **Total Genuine Images:** 1,757 (compact, balanced subset sampled with random seed 42).
@@ -112,13 +112,13 @@ CP-1/
 
 ---
 
-### 2. Segmentation Dataset â€” ISIC
+### 2. Segmentation Dataset Ã¢â‚¬â€ ISIC
 - **Source:** ISIC 2018 Task 1 / Tschandl et al. expert lesion segmentations.
 - **License:** CC BY-NC 4.0.
 - **Total Genuine Image-Mask Pairs:** 1,000 genuine pairs.
 - **Lesion Area Diversity:**
   - Mean coverage: 22.8% of image area (range: 1.1% to 68.4%).
-  - Covers small (<10%), medium (10â€“30%), and large (>30%) lesions across all skin types.
+  - Covers small (<10%), medium (10Ã¢â‚¬â€œ30%), and large (>30%) lesions across all skin types.
 - **Split Distribution (Strictly Split-Aligned):**
   - **Train:** 700 pairs (70.0%)
   - **Validation:** 150 pairs (15.0%)
@@ -133,31 +133,31 @@ To prevent evaluation contamination across the integrated pipeline:
 
 ---
 
-## ðŸ”¬ Image Preprocessing & Augmentation (`services/preprocessing.py`)
+## Ã°Å¸â€Â¬ Image Preprocessing & Augmentation (`services/preprocessing.py`)
 
 1. **Validation & Decoding:**
    - Supports file paths, byte streams, and raw NumPy arrays.
    - Enforces 3-channel RGB uint8 conversion and rejects corrupted images.
 2. **Hair Artefact Removal (DullRazor):**
-   - Applies Morphological BlackHat filtering (17Ã—17 kernel) on grayscale lesion views.
+   - Applies Morphological BlackHat filtering (17Ãƒâ€”17 kernel) on grayscale lesion views.
    - Binary thresholding isolates hair strands.
    - Fast marching Telea inpainting restores occluded lesion regions.
 3. **Classification Preprocessing (ViT-B/16):**
-   - Image resizing to `224Ã—224` (`cv2.INTER_AREA`).
+   - Image resizing to `224Ãƒâ€”224` (`cv2.INTER_AREA`).
    - Standard ImageNet normalization: `mean=[0.485, 0.456, 0.406]`, `std=[0.229, 0.224, 0.225]`.
    - Output shape: `(3, 224, 224)` Float32 PyTorch tensor.
 4. **Segmentation Preprocessing (U-Net):**
-   - Image resizing to `256Ã—256` (`cv2.INTER_AREA`) with ImageNet normalization: `(3, 256, 256)`.
-   - Mask resizing to `256Ã—256` using **nearest-neighbor interpolation** (`cv2.INTER_NEAREST`) to preserve sharp binary boundaries.
+   - Image resizing to `256Ãƒâ€”256` (`cv2.INTER_AREA`) with ImageNet normalization: `(3, 256, 256)`.
+   - Mask resizing to `256Ãƒâ€”256` using **nearest-neighbor interpolation** (`cv2.INTER_NEAREST`) to preserve sharp binary boundaries.
    - Mask normalization to binary `{0.0, 1.0}`: `(1, 256, 256)` Float32 PyTorch tensor.
 5. **Data Augmentation:**
    - Applied **strictly to training sets** (validation and test sets are never augmented).
-   - Coordinated geometric transforms applied identically to both image and mask: horizontal/vertical flips, minor rotations (Â±15Â°).
-   - Photometric adjustments (brightness/contrast scaling 0.9â€“1.1) applied only to images.
+   - Coordinated geometric transforms applied identically to both image and mask: horizontal/vertical flips, minor rotations (Ã‚Â±15Ã‚Â°).
+   - Photometric adjustments (brightness/contrast scaling 0.9Ã¢â‚¬â€œ1.1) applied only to images.
 
 ---
 
-## ðŸ“¦ PyTorch Datasets & DataLoaders (`training/dataset.py`)
+## Ã°Å¸â€œÂ¦ PyTorch Datasets & DataLoaders (`training/dataset.py`)
 
 - **`SkinClassificationDataset`:** Reads manifests, loads images on-the-fly, returns `(image_tensor, label_int, image_id)`.
 - **`SkinSegmentationDataset`:** Reads manifests, returns `(image_tensor, mask_tensor, image_id)`.
@@ -167,7 +167,7 @@ To prevent evaluation contamination across the integrated pipeline:
 
 ---
 
-## ðŸš€ Local Execution Instructions
+## Ã°Å¸Å¡â‚¬ Local Execution Instructions
 
 ### 1. Activate Virtual Environment
 **Windows (PowerShell):**
@@ -211,7 +211,7 @@ python training/train_vit.py --smoke-test --output-dir models/smoke_test
 #### Vision Transformer (ViT-B/16) Classification
 1. Upload `training/train_vit.ipynb` and `colab_vit_package.zip` (43.09 MB) to [Google Colab](https://colab.research.google.com/).
 2. Set runtime to **GPU (T4)**.
-3. Run all cells in `train_vit.ipynb` (approx. 8â€“12 minutes on T4 GPU).
+3. Run all cells in `train_vit.ipynb` (approx. 8Ã¢â‚¬â€œ12 minutes on T4 GPU).
 4. Download the trained `vit_model.pth` and `vit_metrics.json` back to your local `models/` and `training/results/` directories.
 
 ### 6. Start the Application Server
@@ -226,11 +226,11 @@ python -m uvicorn main:app --host 127.0.0.1 --port 8000
 
 ---
 
-## ðŸ§  U-Net Model Architecture & Service (`models/unet.py`, `services/segmentation.py`)
+## Ã°Å¸Â§Â  U-Net Model Architecture & Service (`models/unet.py`, `services/segmentation.py`)
 
 - **Encoder:** Pretrained ResNet18 (Torchvision weights `DEFAULT`).
 - **Decoder:** 4-stage progressive bilateral upsampling with double-convolution blocks.
-- **Skip Connections:** Preserves spatial lesion context across scales (128Ã—128, 64Ã—64, 32Ã—32, 16Ã—16).
+- **Skip Connections:** Preserves spatial lesion context across scales (128Ãƒâ€”128, 64Ãƒâ€”64, 32Ãƒâ€”32, 16Ãƒâ€”16).
 - **Parameters:** 14,404,257 total trainable parameters.
 - **Loss:** $\mathcal{L}_{total} = 0.5 \cdot \mathcal{L}_{BCEWithLogits} + 0.5 \cdot \mathcal{L}_{Dice}$.
 - **Inference Service:**
@@ -261,20 +261,20 @@ Artifacts stored at:
 
 ---
 
-## ðŸ”¬ Vision Transformer Model Architecture & Inference Service (`models/vit.py`, `services/prediction.py`)
+## Ã°Å¸â€Â¬ Vision Transformer Model Architecture & Inference Service (`models/vit.py`, `services/prediction.py`)
 
 - **Architecture:** Pretrained Vision Transformer `vit_base_patch16_224` (via `timm`), ImageNet-21k fine-tuned on ImageNet-1k.
-- **Input Specifications:** 3Ã—224Ã—224 RGB tensors, normalized with standard ImageNet statistics ($\mu = [0.485, 0.456, 0.406]$, $\sigma = [0.229, 0.224, 0.225]$).
+- **Input Specifications:** 3Ãƒâ€”224Ãƒâ€”224 RGB tensors, normalized with standard ImageNet statistics ($\mu = [0.485, 0.456, 0.406]$, $\sigma = [0.229, 0.224, 0.225]$).
 - **Classification Head:** Linear projection from 768-dimensional token embedding to 7 disease classes:
-  - `NV` (0) â€” Melanocytic Nevi
-  - `MEL` (1) â€” Melanoma
-  - `BKL` (2) â€” Benign Keratosis-like Lesions
-  - `BCC` (3) â€” Basal Cell Carcinoma
-  - `AKIEC` (4) â€” Actinic Keratoses and Intraepithelial Carcinoma
-  - `VASC` (5) â€” Vascular Lesions
-  - `DF` (6) â€” Dermatofibroma
+  - `NV` (0) Ã¢â‚¬â€ Melanocytic Nevi
+  - `MEL` (1) Ã¢â‚¬â€ Melanoma
+  - `BKL` (2) Ã¢â‚¬â€ Benign Keratosis-like Lesions
+  - `BCC` (3) Ã¢â‚¬â€ Basal Cell Carcinoma
+  - `AKIEC` (4) Ã¢â‚¬â€ Actinic Keratoses and Intraepithelial Carcinoma
+  - `VASC` (5) Ã¢â‚¬â€ Vascular Lesions
+  - `DF` (6) Ã¢â‚¬â€ Dermatofibroma
 - **Transfer Learning & Freezing Strategy:**
-  - Patch embedding, class token, position embeddings, and blocks 0â€“9 frozen (71,621,376 frozen parameters).
+  - Patch embedding, class token, position embeddings, and blocks 0Ã¢â‚¬â€œ9 frozen (71,621,376 frozen parameters).
   - Top 2 transformer blocks (blocks 10 and 11), layernorm, and linear classification head remain trainable (14,182,663 trainable parameters).
   - Total parameters: 85,804,039.
 - **Discriminative Learning Rates & Optimizer:**
@@ -323,12 +323,12 @@ Artifacts stored at:
 - Visual Predictions: `training/results/vit_samples/test_*.png`
 
 ### Google Colab GPU Training Package
-- **Notebook:** `training/train_vit.ipynb` â€” 19-cell ready-to-run notebook for Google Colab GPU (T4).
+- **Notebook:** `training/train_vit.ipynb` Ã¢â‚¬â€ 19-cell ready-to-run notebook for Google Colab GPU (T4).
 - **Archive:** `colab_vit_package.zip` (43.09 MB, 1,770 files) containing only genuine HAM10000 images (`1,233` train, `267` val, `257` test), manifests, and training code.
 
 ---
 
-## ðŸ§  Explainable AI (XAI) Attention Rollout (`services/attention.py`)
+## Ã°Å¸Â§Â  Explainable AI (XAI) Attention Rollout (`services/attention.py`)
 
 - **Theoretical Basis:** Implements Attention Rollout (Abnar & Zuidema, 2020) to recursively trace information flow from the `[CLS]` token across all 12 self-attention transformer blocks.
 - **Hooking Architecture:** Dynamically intercepts attention weight matrices at `block.attn.attn_drop` (disabling `fused_attn` temporarily) to capture the genuine $(1, 12, 197, 197)$ attention tensors.
@@ -340,7 +340,7 @@ Artifacts stored at:
 
 ---
 
-## ðŸ©º Prototype Severity Grading & Treatment Cost Estimation (`services/severity.py`, `services/cost_estimation.py`)
+## Ã°Å¸Â©Âº Prototype Severity Grading & Treatment Cost Estimation (`services/severity.py`, `services/cost_estimation.py`)
 
 ### 1. Prototype Clinical Severity Triage
 - Heuristic rule-based categorization evaluating disease pathology, model confidence score, and top-3 differential presence:
@@ -352,16 +352,16 @@ Artifacts stored at:
 
 ### 2. Benchmark Indian Healthcare Treatment Cost Breakdown (`data/treatment_costs.json`)
 - Provides indicative price bands in Indian Rupees (INR) for private dermatological facilities across 5 care tiers:
-  1. **Specialist Consultation:** Initial evaluation, full-body dermoscopy, digital record keeping (â‚¹500 â€“ â‚¹1,500).
-  2. **Diagnostic Workup:** Histopathological biopsy, dermoscopic epiluminescence, immunohistochemistry (â‚¹1,500 â€“ â‚¹8,000).
-  3. **Prescription Medications:** Topical chemotherapeutic agents, immunomodulators, healing ointments (â‚¹300 â€“ â‚¹4,000).
-  4. **Procedural Intervention:** Excisional biopsy, cryotherapy, electrosurgery, or laser ablation (â‚¹1,500 â€“ â‚¹35,000).
-  5. **Follow-Up & Monitoring:** Routine surveillance review and periodic photographic re-evaluation (â‚¹400 â€“ â‚¹1,200).
+  1. **Specialist Consultation:** Initial evaluation, full-body dermoscopy, digital record keeping (Ã¢â€šÂ¹500 Ã¢â‚¬â€œ Ã¢â€šÂ¹1,500).
+  2. **Diagnostic Workup:** Histopathological biopsy, dermoscopic epiluminescence, immunohistochemistry (Ã¢â€šÂ¹1,500 Ã¢â‚¬â€œ Ã¢â€šÂ¹8,000).
+  3. **Prescription Medications:** Topical chemotherapeutic agents, immunomodulators, healing ointments (Ã¢â€šÂ¹300 Ã¢â‚¬â€œ Ã¢â€šÂ¹4,000).
+  4. **Procedural Intervention:** Excisional biopsy, cryotherapy, electrosurgery, or laser ablation (Ã¢â€šÂ¹1,500 Ã¢â‚¬â€œ Ã¢â€šÂ¹35,000).
+  5. **Follow-Up & Monitoring:** Routine surveillance review and periodic photographic re-evaluation (Ã¢â€šÂ¹400 Ã¢â‚¬â€œ Ã¢â€šÂ¹1,200).
 - **Notice:** Cost figures are illustrative academic benchmarks reflecting typical Indian private clinic and hospital tariffs; they are **NOT** binding quotations, insurance claims, or medical prescriptions.
 
 ---
 
-## ðŸ“‘ Automated Medical Report Generation (`services/report.py`)
+## Ã°Å¸â€œâ€˜ Automated Medical Report Generation (`services/report.py`)
 
 - Built using **ReportLab 5.1.0** without external headless browser dependencies.
 - Generates publication-quality, multi-section clinical summary PDFs (`reports/report_<reference_id>.pdf`):
@@ -374,7 +374,7 @@ Artifacts stored at:
 
 ---
 
-## ðŸŒ FastAPI REST API Endpoints
+## Ã°Å¸Å’Â FastAPI REST API Endpoints
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
@@ -390,7 +390,7 @@ Artifacts stored at:
 
 ---
 
-## ðŸ§ª Comprehensive Verification & Test Suites
+## Ã°Å¸Â§Âª Comprehensive Verification & Test Suites
 
 The project includes 4 automated verification suites covering 100% of the monolithic architecture:
 
@@ -417,7 +417,7 @@ The project includes 4 automated verification suites covering 100% of the monoli
 
 ---
 
-## ðŸš€ Local Execution Instructions
+## Ã°Å¸Å¡â‚¬ Local Execution Instructions
 
 ### 1. Prerequisites
 - Python 3.11 installed.
@@ -445,7 +445,7 @@ python -m uvicorn main:app --host 127.0.0.1 --port 8000
 
 ---
 
-## âš ï¸ Known Model Performance & Clinical Limitations
+## Ã¢Å¡Â Ã¯Â¸Â Known Model Performance & Clinical Limitations
 
 1. **Classification Accuracy (64.59%):** While achieving strong ROC-AUC ($92.20\%$), the multiclass accuracy reflects the inherent difficulty of fine-grained dermatological discrimination across 7 classes on a compact genuine dataset (1,757 images).
 2. **Melanoma Sensitivity (47.73% Recall):** Benign keratoses (`BKL`) and early stage melanomas (`MEL`) exhibit high morphological overlap in dermoscopic views. In ambiguous cases, the algorithmic severity service conservatively triggers `Undetermined` or flags Melanoma presence in the differential.
@@ -454,7 +454,7 @@ python -m uvicorn main:app --host 127.0.0.1 --port 8000
 
 ---
 
-## ðŸ“Œ Development Roadmap Status
+## Ã°Å¸â€œÅ’ Development Roadmap Status
 
 - **Phase 1 (Completed):** Project structure, virtual environment, dependencies, database schema, web server, dashboard and history placeholders with medical disclaimer.
 - **Phase 2 (Completed):** Dataset collection & balancing (HAM10000 & ISIC), DullRazor hair removal, image preprocessing, data augmentations, PyTorch Datasets & DataLoaders, split manifests, and endpoint standardization.
