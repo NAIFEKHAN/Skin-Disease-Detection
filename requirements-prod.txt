@@ -1,0 +1,30 @@
+# ==============================================================================
+# Production Dependencies: CP-1 Skin Disease Detection & Cost Estimation
+# Optimized for Headless Linux / Ubuntu 22.04 LTS (AWS EC2 CPU Instance)
+# ==============================================================================
+
+# PyTorch CPU Wheel Index (Prevents installing ~2.5GB+ unnecessary NVIDIA CUDA packages)
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# PyTorch & Computer Vision (CPU-optimized)
+torch>=2.2.0
+torchvision>=0.17.0
+timm>=0.9.16
+Pillow>=10.2.0
+
+# Headless OpenCV (does not require libGL or X11 GUI shared libraries on Linux)
+opencv-python-headless>=4.9.0.80
+
+# Web Framework & ASGI Production Server
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+python-multipart>=0.0.9
+pydantic>=2.6.0
+
+# Scientific & Tabular Processing (Inference & Feature Pipelines)
+numpy>=1.26.0
+pandas>=2.2.0
+scikit-learn>=1.4.0
+
+# Clinical PDF Report Generation
+reportlab>=4.1.0

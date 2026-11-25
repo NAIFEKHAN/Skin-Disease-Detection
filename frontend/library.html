@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Disease Library | Skin Disease Detection</title>
+    <link rel="stylesheet" href="/static/css/style.css?v=2.2">
+</head>
+<body>
+    <!-- Header with Forest Green Identity -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="header-brand-group">
+                <button class="hamburger-btn" id="btn-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <a href="/" class="app-title">Skin Disease Detection</a>
+            </div>
+            <nav class="desktop-nav" aria-label="Desktop Navigation">
+                <ul class="nav-menu">
+                    <li><a href="/" class="nav-item-link">Skin Analysis</a></li>
+                    <li><a href="/library" class="nav-item-link active">Disease Library</a></li>
+                    <li><a href="/reports" class="nav-item-link">Reports</a></li>
+                    <li><a href="/about" class="nav-item-link">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+
+    <!-- Mobile Navigation Drawer (Off-Canvas Sidebar) -->
+    <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+        <div class="drawer-header">
+            <span class="drawer-brand-title">Menu</span>
+            <button type="button" class="drawer-close-btn" id="btn-close-drawer" aria-label="Close navigation menu">
+                ✕
+            </button>
+        </div>
+        <nav class="drawer-nav">
+            <ul class="drawer-menu">
+                <li>
+                    <a href="/" class="drawer-item-link">
+                        <svg class="drawer-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+                            <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+                            <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+                            <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+                            <line x1="7" y1="12" x2="17" y2="12"></line>
+                        </svg>
+                        <span>Skin Analysis</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/library" class="drawer-item-link active">
+                        <svg class="drawer-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                        <span>Disease Library</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/reports" class="drawer-item-link">
+                        <svg class="drawer-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/about" class="drawer-item-link">
+                        <svg class="drawer-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        <span>About</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="drawer-footer-note">
+            AI Skin Disease Detection
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Page Header -->
+        <div class="page-header-box">
+            <h1 class="page-heading">Disease Library</h1>
+            <p class="secondary-text">
+                Educational reference guides for all 16 clinical skin conditions. Active AI analysis categories (7 dermoscopic conditions) and educational reference categories (9 common conditions) are clearly distinguished below.
+            </p>
+        </div>
+
+        <!-- Reference Notice -->
+        <div class="camera-advice-note" style="margin-bottom: 1.25rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <div>
+                <strong>Reference Note:</strong> The photos below are standard educational reference samples from verified clinical archives (HAM10000 and Google SCIN / SkinDisNet). Please do not try to self-diagnose by visually comparing your skin. Always consult a certified dermatologist for professional medical assessment.
+            </div>
+        </div>
+
+        <!-- Category Modality Tabs -->
+        <div class="library-mode-tabs" style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-primary mode-tab-btn active" data-mode="all" id="tab-all-modes">All Categories (16)</button>
+            <button type="button" class="btn btn-secondary mode-tab-btn" data-mode="dermoscopy" id="tab-dermoscopy-modes">Dermoscopic Lesions (7)</button>
+            <button type="button" class="btn btn-secondary mode-tab-btn" data-mode="common_skin" id="tab-common-modes">Common Skin Conditions (9)</button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="library-filter-strip">
+            <input type="text" id="library-search" class="search-input" placeholder="Search by disease name, code, or description (e.g., Melanoma, Acne, Eczema)...">
+            <span class="secondary-text" id="library-count-text">Showing 16 categories</span>
+        </div>
+
+        <!-- Disease Cards Grid -->
+        <div class="library-grid" id="library-grid">
+            <!-- Populated dynamically by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Disease Detail Modal -->
+    <div class="modal-overlay" id="disease-modal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <div>
+                    <h2 class="card-heading" id="modal-disease-title" style="font-size: 20px; color: var(--primary);">Disease Title</h2>
+                    <span class="secondary-text" id="modal-disease-type">Category Type</span>
+                </div>
+                <button type="button" class="modal-close-btn" id="btn-close-disease-modal">✕</button>
+            </div>
+
+            <div id="modal-disease-body">
+                <!-- Representative Reference Image -->
+                <div style="background: #0F172A; border-radius: var(--radius-md); overflow: hidden; height: 240px; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center;">
+                    <img id="modal-disease-img" src="" alt="Reference photograph" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+                </div>
+                <p class="secondary-text" id="modal-disease-img-caption" style="font-size: 12.5px; text-align: center; margin-top: -0.75rem; margin-bottom: 1rem;">
+                    Representative sample
+                </p>
+
+                <!-- Overview -->
+                <h3 class="card-heading" style="margin-bottom: 0.35rem;">Overview</h3>
+                <p class="body-text" id="modal-disease-desc" style="margin-bottom: 1rem;"></p>
+
+                <!-- Common Characteristics -->
+                <h3 class="card-heading" style="margin-bottom: 0.35rem;">Common Characteristics</h3>
+                <ul id="modal-disease-chars" style="padding-left: 1.25rem; margin-bottom: 1rem; font-size: 14px; line-height: 1.5;"></ul>
+
+                <!-- Diagnostic Approaches -->
+                <h3 class="card-heading" style="margin-bottom: 0.35rem;">Clinical Evaluation & Diagnosis</h3>
+                <ul id="modal-disease-diag" style="padding-left: 1.25rem; margin-bottom: 1rem; font-size: 14px; line-height: 1.5;"></ul>
+
+                <!-- General Treatment Approaches -->
+                <h3 class="card-heading" style="margin-bottom: 0.35rem;">General Treatment & Management</h3>
+                <ul id="modal-disease-treat" style="padding-left: 1.25rem; margin-bottom: 1rem; font-size: 14px; line-height: 1.5;"></ul>
+
+                <!-- When to Seek Medical Assessment -->
+                <div style="background: #FEF3C7; border-left: 4px solid #D97706; padding: 0.85rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem;">
+                    <strong style="color: #92400E; font-size: 13.5px;">When to Seek Medical Assessment:</strong>
+                    <p id="modal-disease-care" style="font-size: 13px; color: #78350F; margin-top: 0.25rem;"></p>
+                </div>
+
+                <!-- Sources & Attribution -->
+                <div style="font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+                    <strong>Sources & Guidelines:</strong> <span id="modal-disease-sources"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simplified Footer -->
+    <footer class="site-footer">
+        <p class="footer-disclaimer-notice">
+            For educational use only. Not a medical diagnosis. Consult a qualified dermatologist.
+        </p>
+    </footer>
+
+    <script src="/static/js/app.js?v=2.2"></script>
+</body>
+</html>

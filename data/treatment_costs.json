@@ -1,0 +1,503 @@
+{
+  "currency": "INR",
+  "currency_symbol": "₹",
+  "disclaimer": "Illustrative cost ranges in Indian Rupees (INR) for educational and prototype demonstration purposes only. These figures do not represent hospital quotations, insurance claims, or prescribed medical regimens. Actual clinical expenses vary widely by geographic location, healthcare facility grade, specialist seniority, individual pathology, and surgical requirements.",
+  "categories": {
+    "nv": {
+      "disease_name": "Melanocytic Nevi",
+      "nature": "Benign",
+      "consultation": {
+        "description": "Dermatologist clinical evaluation",
+        "min_cost": 500,
+        "max_cost": 1000
+      },
+      "diagnostics": {
+        "description": "Dermoscopy examination",
+        "min_cost": 1000,
+        "max_cost": 2000
+      },
+      "medication": {
+        "description": "Topical antiseptics / wound care (if biopsied)",
+        "min_cost": 300,
+        "max_cost": 800
+      },
+      "procedure": {
+        "description": "Optional minor excision or monitoring",
+        "min_cost": 2500,
+        "max_cost": 6000
+      },
+      "follow_up": {
+        "description": "Routine dermoscopic surveillance (6–12 months)",
+        "min_cost": 400,
+        "max_cost": 800
+      },
+      "total_min": 4700,
+      "total_max": 10600
+    },
+    "mel": {
+      "disease_name": "Melanoma",
+      "nature": "Malignant",
+      "consultation": {
+        "description": "Oncological dermatology specialist consultation",
+        "min_cost": 1500,
+        "max_cost": 3000
+      },
+      "diagnostics": {
+        "description": "Excisional biopsy, histopathology & lymph node evaluation",
+        "min_cost": 5000,
+        "max_cost": 15000
+      },
+      "medication": {
+        "description": "Adjuvant systemic therapeutics / supportive pharmaceuticals",
+        "min_cost": 2000,
+        "max_cost": 8000
+      },
+      "procedure": {
+        "description": "Wide local surgical excision with surgical safety margins",
+        "min_cost": 25000,
+        "max_cost": 75000
+      },
+      "follow_up": {
+        "description": "Comprehensive oncological surveillance & follow-up visits",
+        "min_cost": 2500,
+        "max_cost": 6000
+      },
+      "total_min": 36000,
+      "total_max": 107000
+    },
+    "bkl": {
+      "disease_name": "Benign Keratosis-like Lesions",
+      "nature": "Benign",
+      "consultation": {
+        "description": "Dermatologist clinical evaluation",
+        "min_cost": 600,
+        "max_cost": 1200
+      },
+      "diagnostics": {
+        "description": "Polarized dermoscopy assessment",
+        "min_cost": 800,
+        "max_cost": 2000
+      },
+      "medication": {
+        "description": "Topical keratolytics / soothing emollient preparations",
+        "min_cost": 400,
+        "max_cost": 1000
+      },
+      "procedure": {
+        "description": "Liquid nitrogen cryotherapy or shave electrocautery",
+        "min_cost": 2500,
+        "max_cost": 7000
+      },
+      "follow_up": {
+        "description": "Post-procedure healing verification",
+        "min_cost": 500,
+        "max_cost": 1000
+      },
+      "total_min": 4800,
+      "total_max": 12200
+    },
+    "bcc": {
+      "disease_name": "Basal Cell Carcinoma",
+      "nature": "Malignant (Locally Invasive)",
+      "consultation": {
+        "description": "Dermatologist & surgical consultation",
+        "min_cost": 1000,
+        "max_cost": 2000
+      },
+      "diagnostics": {
+        "description": "Punch biopsy & histopathological margin mapping",
+        "min_cost": 3000,
+        "max_cost": 7000
+      },
+      "medication": {
+        "description": "Topical immunotherapy (e.g., Imiquimod) or post-op dressings",
+        "min_cost": 1500,
+        "max_cost": 4000
+      },
+      "procedure": {
+        "description": "Surgical excision or curettage & electrodessication",
+        "min_cost": 12000,
+        "max_cost": 35000
+      },
+      "follow_up": {
+        "description": "6-month recurrence inspection & scar assessment",
+        "min_cost": 1000,
+        "max_cost": 2500
+      },
+      "total_min": 18500,
+      "total_max": 50500
+    },
+    "akiec": {
+      "disease_name": "Actinic Keratoses / Intraepithelial Carcinoma",
+      "nature": "Precancerous / In-Situ",
+      "consultation": {
+        "description": "Dermatologist clinical evaluation",
+        "min_cost": 800,
+        "max_cost": 1500
+      },
+      "diagnostics": {
+        "description": "Dermoscopy & optional confirmatory shave biopsy",
+        "min_cost": 1500,
+        "max_cost": 4000
+      },
+      "medication": {
+        "description": "Topical field therapies (Fluorouracil, Imiquimod, Diclofenac)",
+        "min_cost": 1200,
+        "max_cost": 3500
+      },
+      "procedure": {
+        "description": "Targeted cryotherapy ablation or photodynamic therapy",
+        "min_cost": 4000,
+        "max_cost": 12000
+      },
+      "follow_up": {
+        "description": "Ablation response monitoring & skin check",
+        "min_cost": 800,
+        "max_cost": 1500
+      },
+      "total_min": 8300,
+      "total_max": 22500
+    },
+    "vasc": {
+      "disease_name": "Vascular Lesions",
+      "nature": "Benign Vascular Malformation",
+      "consultation": {
+        "description": "Dermatologist clinical evaluation",
+        "min_cost": 600,
+        "max_cost": 1200
+      },
+      "diagnostics": {
+        "description": "Dermoscopy / diascopy vascular blanching test",
+        "min_cost": 800,
+        "max_cost": 2000
+      },
+      "medication": {
+        "description": "Local antiseptic healing ointments & dressings",
+        "min_cost": 300,
+        "max_cost": 800
+      },
+      "procedure": {
+        "description": "Pulse dye laser, electrocautery, or radiofrequency ablation",
+        "min_cost": 3000,
+        "max_cost": 8500
+      },
+      "follow_up": {
+        "description": "Vascular resolution check",
+        "min_cost": 500,
+        "max_cost": 1000
+      },
+      "total_min": 5200,
+      "total_max": 13500
+    },
+    "df": {
+      "disease_name": "Dermatofibroma",
+      "nature": "Benign Fibrous Lesion",
+      "consultation": {
+        "description": "Dermatologist clinical evaluation",
+        "min_cost": 600,
+        "max_cost": 1200
+      },
+      "diagnostics": {
+        "description": "Clinical pinch sign & dermoscopic pigment network check",
+        "min_cost": 800,
+        "max_cost": 1800
+      },
+      "medication": {
+        "description": "Topical wound care ointments",
+        "min_cost": 300,
+        "max_cost": 700
+      },
+      "procedure": {
+        "description": "Optional cryosurgery or simple surgical excision",
+        "min_cost": 2500,
+        "max_cost": 6500
+      },
+      "follow_up": {
+        "description": "Post-procedure surveillance",
+        "min_cost": 500,
+        "max_cost": 1000
+      },
+      "total_min": 4700,
+      "total_max": 11200
+    },
+    "acne": {
+      "disease_name": "Acne",
+      "nature": "Inflammatory Pilosebaceous Condition",
+      "consultation": {
+        "description": "Dermatologist clinical evaluation & acne grading",
+        "min_cost": 500,
+        "max_cost": 1000
+      },
+      "diagnostics": {
+        "description": "Comedone assessment & optional hormonal panel",
+        "min_cost": 500,
+        "max_cost": 1500
+      },
+      "medication": {
+        "description": "Topical retinoids, benzoyl peroxide / topical antibiotics",
+        "min_cost": 800,
+        "max_cost": 2500
+      },
+      "procedure": {
+        "description": "Optional comedone extraction or superficial chemical peel",
+        "min_cost": 1500,
+        "max_cost": 4000
+      },
+      "follow_up": {
+        "description": "Treatment review & tolerance assessment (6–8 weeks)",
+        "min_cost": 400,
+        "max_cost": 800
+      },
+      "total_min": 3700,
+      "total_max": 9800
+    },
+    "allergic_contact_dermatitis": {
+      "disease_name": "Allergic Contact Dermatitis",
+      "nature": "Type IV Hypersensitivity Eruption",
+      "consultation": {
+        "description": "Allergy & dermatology clinical consultation",
+        "min_cost": 600,
+        "max_cost": 1200
+      },
+      "diagnostics": {
+        "description": "Cutaneous patch testing (standard allergen series)",
+        "min_cost": 1500,
+        "max_cost": 4000
+      },
+      "medication": {
+        "description": "Potent topical corticosteroids & barrier restoration creams",
+        "min_cost": 500,
+        "max_cost": 1500
+      },
+      "procedure": {
+        "description": "Acute flare skin barrier soothing & allergen counseling",
+        "min_cost": 500,
+        "max_cost": 1500
+      },
+      "follow_up": {
+        "description": "Patch test reading (48h & 96h) and allergen review",
+        "min_cost": 400,
+        "max_cost": 800
+      },
+      "total_min": 3500,
+      "total_max": 9000
+    },
+    "eczema": {
+      "disease_name": "Eczema (Atopic Dermatitis)",
+      "nature": "Chronic Inflammatory Dermatosis",
+      "consultation": {
+        "description": "Dermatologist clinical assessment & EASI scoring",
+        "min_cost": 600,
+        "max_cost": 1200
+      },
+      "diagnostics": {
+        "description": "Barrier integrity assessment & optional secondary swab",
+        "min_cost": 800,
+        "max_cost": 2000
+      },
+      "medication": {
+        "description": "Lipid barrier emollients, calcineurin inhibitors, topical steroids",
+        "min_cost": 1200,
+        "max_cost": 3500
+      },
+      "procedure": {
+        "description": "Wet wrap therapy instruction or initial phototherapy session",
+        "min_cost": 1000,
+        "max_cost": 3000
+      },
+      "follow_up": {
+        "description": "Chronic disease monitoring & flare mitigation review",
+        "min_cost": 400,
+        "max_cost": 800
+      },
+      "total_min": 4000,
+      "total_max": 10500
+    },
+    "impetigo": {
+      "disease_name": "Impetigo",
+      "nature": "Superficial Bacterial Infection",
+      "consultation": {
+        "description": "Clinical examination & contagion assessment",
+        "min_cost": 500,
+        "max_cost": 1000
+      },
+      "diagnostics": {
+        "description": "Bacterial Gram stain & culture with antibiotic sensitivity",
+        "min_cost": 500,
+        "max_cost": 1500
+      },
+      "medication": {
+        "description": "Prescription mupirocin ointment / oral beta-lactam antibiotics",
+        "min_cost": 400,
+        "max_cost": 1200
+      },
+      "procedure": {
+        "description": "Antiseptic soak & gentle crust removal instruction",
+        "min_cost": 400,
+        "max_cost": 800
+      },
+      "follow_up": {
+        "description": "Infection clearance confirmation (7–10 days)",
+        "min_cost": 300,
+        "max_cost": 600
+      },
+      "total_min": 2100,
+      "total_max": 5100
+    },
+    "psoriasis": {
+      "disease_name": "Psoriasis",
+      "nature": "Autoimmune Erythematosquamous Disease",
+      "consultation": {
+        "description": "Specialist dermatological consultation & PASI assessment",
+        "min_cost": 700,
+        "max_cost": 1500
+      },
+      "diagnostics": {
+        "description": "Joint screening, baseline metabolic panel & optional punch biopsy",
+        "min_cost": 1500,
+        "max_cost": 3500
+      },
+      "medication": {
+        "description": "Topical vitamin D3 analogues, potent corticosteroids, keratolytics",
+        "min_cost": 1500,
+        "max_cost": 4500
+      },
+      "procedure": {
+        "description": "Narrowband UVB phototherapy session / plaque descaling",
+        "min_cost": 2000,
+        "max_cost": 5000
+      },
+      "follow_up": {
+        "description": "Periodic response evaluation & systemic toxicity monitoring",
+        "min_cost": 500,
+        "max_cost": 1000
+      },
+      "total_min": 6200,
+      "total_max": 15500
+    },
+    "ringworm": {
+      "disease_name": "Ringworm (Tinea Corporis)",
+      "nature": "Superficial Dermatophyte Infection",
+      "consultation": {
+        "description": "Dermatologist clinical evaluation",
+        "min_cost": 500,
+        "max_cost": 1000
+      },
+      "diagnostics": {
+        "description": "Potassium hydroxide (KOH) direct fungal microscopy",
+        "min_cost": 500,
+        "max_cost": 1200
+      },
+      "medication": {
+        "description": "Topical allylamine/imidazole creams (terbinafine/clotrimazole)",
+        "min_cost": 600,
+        "max_cost": 1800
+      },
+      "procedure": {
+        "description": "Antifungal hygiene & recurrence prevention protocol",
+        "min_cost": 300,
+        "max_cost": 700
+      },
+      "follow_up": {
+        "description": "Mycological cure confirmation after 2–3 weeks",
+        "min_cost": 300,
+        "max_cost": 600
+      },
+      "total_min": 2200,
+      "total_max": 5300
+    },
+    "scabies": {
+      "disease_name": "Scabies",
+      "nature": "Parasitic Mite Infestation",
+      "consultation": {
+        "description": "Clinical examination & household contact tracing",
+        "min_cost": 500,
+        "max_cost": 1000
+      },
+      "diagnostics": {
+        "description": "Dermoscopic burrow inspection & skin scraping microscopy",
+        "min_cost": 600,
+        "max_cost": 1500
+      },
+      "medication": {
+        "description": "Topical 5% permethrin lotion & oral ivermectin for family",
+        "min_cost": 800,
+        "max_cost": 2200
+      },
+      "procedure": {
+        "description": "Household decontamination instruction & antipruritic soak",
+        "min_cost": 400,
+        "max_cost": 1000
+      },
+      "follow_up": {
+        "description": "Re-evaluation at day 14 to verify complete eradication",
+        "min_cost": 400,
+        "max_cost": 800
+      },
+      "total_min": 2700,
+      "total_max": 6500
+    },
+    "seborrheic_dermatitis": {
+      "disease_name": "Seborrheic Dermatitis",
+      "nature": "Chronic Scalp & Facial Dermatosis",
+      "consultation": {
+        "description": "Clinical examination & trigger assessment",
+        "min_cost": 500,
+        "max_cost": 1000
+      },
+      "diagnostics": {
+        "description": "Sebum & scalp clinical evaluation",
+        "min_cost": 400,
+        "max_cost": 1000
+      },
+      "medication": {
+        "description": "Ketoconazole / zinc pyrithione shampoo & mild anti-inflammatory lotion",
+        "min_cost": 600,
+        "max_cost": 1600
+      },
+      "procedure": {
+        "description": "Keratolytic scalp de-scaling treatment",
+        "min_cost": 500,
+        "max_cost": 1200
+      },
+      "follow_up": {
+        "description": "Maintenance frequency adjustment (4 weeks)",
+        "min_cost": 300,
+        "max_cost": 600
+      },
+      "total_min": 2300,
+      "total_max": 5400
+    },
+    "urticaria": {
+      "disease_name": "Urticaria (Hives)",
+      "nature": "Mast-Cell Mediated Vascular Reaction",
+      "consultation": {
+        "description": "Emergency / clinical dermatology consultation",
+        "min_cost": 600,
+        "max_cost": 1200
+      },
+      "diagnostics": {
+        "description": "CBC, inflammatory markers & allergen trigger screening",
+        "min_cost": 1200,
+        "max_cost": 3500
+      },
+      "medication": {
+        "description": "Second-generation H1 antihistamines & short rescue corticosteroids",
+        "min_cost": 600,
+        "max_cost": 2000
+      },
+      "procedure": {
+        "description": "Acute flare observation & trigger avoidance counseling",
+        "min_cost": 800,
+        "max_cost": 2500
+      },
+      "follow_up": {
+        "description": "Chronic wheal monitoring & antihistamine titration",
+        "min_cost": 400,
+        "max_cost": 800
+      },
+      "total_min": 3600,
+      "total_max": 10000
+    }
+  }
+}

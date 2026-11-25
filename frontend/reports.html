@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Reports | Skin Disease Detection</title>
+    <link rel="stylesheet" href="/static/css/style.css?v=2.2">
+</head>
+<body>
+    <!-- Header with Forest Green Identity -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="header-brand-group">
+                <button class="hamburger-btn" id="btn-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <a href="/" class="app-title">Skin Disease Detection</a>
+            </div>
+            <nav class="desktop-nav" aria-label="Desktop Navigation">
+                <ul class="nav-menu">
+                    <li><a href="/" class="nav-item-link">Skin Analysis</a></li>
+                    <li><a href="/library" class="nav-item-link">Disease Library</a></li>
+                    <li><a href="/reports" class="nav-item-link active">Reports</a></li>
+                    <li><a href="/about" class="nav-item-link">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+
+    <!-- Mobile Navigation Drawer (Off-Canvas Sidebar) -->
+    <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+        <div class="drawer-header">
+            <span class="drawer-brand-title">Menu</span>
+            <button type="button" class="drawer-close-btn" id="btn-close-drawer" aria-label="Close navigation menu">
+                ✕
+            </button>
+        </div>
+        <nav class="drawer-nav">
+            <ul class="drawer-menu">
+                <li>
+                    <a href="/" class="drawer-item-link">
+                        <svg class="drawer-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+                            <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+                            <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+                            <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+                            <line x1="7" y1="12" x2="17" y2="12"></line>
+                        </svg>
+                        <span>Skin Analysis</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/library" class="drawer-item-link">
+                        <svg class="drawer-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                        <span>Disease Library</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/reports" class="drawer-item-link active">
+                        <svg class="drawer-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/about" class="drawer-item-link">
+                        <svg class="drawer-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        <span>About</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="drawer-footer-note">
+            AI Skin Disease Detection
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Page Header -->
+        <div class="page-header-box">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.75rem;">
+                <div>
+                    <h1 class="page-heading">Analysis Reports</h1>
+                    <p class="secondary-text">
+                        Saved skin analysis records stored securely in the local SQLite database.
+                    </p>
+                </div>
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <button type="button" class="btn btn-secondary" id="btn-refresh-reports" style="padding: 0.45rem 0.85rem; font-size: 13.5px; min-height: 38px;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="23 4 23 10 17 10"></polyline>
+                            <polyline points="1 20 1 14 7 14"></polyline>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                        </svg>
+                        Refresh
+                    </button>
+                    <span class="concern-badge" id="reports-total-badge" style="background-color: var(--primary);">0 Reports</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="card" style="padding: 1rem 1.25rem; margin-bottom: 1.25rem;">
+            <div class="reports-filter-bar">
+                <input type="text" id="report-search" class="search-input" placeholder="Search by reference ID or disease..." style="max-width: 320px;">
+                
+                <select id="filter-category" class="select-filter">
+                    <option value="">All Categories</option>
+                    <option value="MEL">Melanoma (MEL)</option>
+                    <option value="NV">Melanocytic Nevi (NV)</option>
+                    <option value="BCC">Basal Cell Carcinoma (BCC)</option>
+                    <option value="AKIEC">Actinic Keratoses (AKIEC)</option>
+                    <option value="BKL">Benign Keratosis (BKL)</option>
+                    <option value="DF">Dermatofibroma (DF)</option>
+                    <option value="VASC">Vascular Lesions (VASC)</option>
+                </select>
+
+                <input type="date" id="filter-date" class="select-filter" title="Filter by date">
+
+                <button type="button" class="btn btn-outline-neutral" id="btn-reset-filters" style="padding: 0.55rem 0.85rem; font-size: 13px; min-height: 38px;">
+                    Reset
+                </button>
+            </div>
+        </div>
+
+        <!-- Desktop Table View -->
+        <div class="table-responsive-wrapper">
+            <table class="reports-table">
+                <thead>
+                    <tr>
+                        <th style="width: 150px;">Report Reference</th>
+                        <th>Date & Time</th>
+                        <th>Predicted Category</th>
+                        <th>Confidence</th>
+                        <th>Concern Indicator</th>
+                        <th>Estimated Cost (INR)</th>
+                        <th style="text-align: center; width: 230px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="reports-tbody">
+                    <tr>
+                        <td colspan="7" class="empty-state-box">
+                            Loading saved reports from database...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Mobile Card List View -->
+        <div class="mobile-reports-list" id="mobile-reports-container">
+            <!-- Populated dynamically for mobile viewports -->
+        </div>
+
+        <!-- Empty State Message -->
+        <div class="card empty-state-box" id="reports-empty-state" style="display: none;">
+            <div class="empty-state-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+            </div>
+            <h3 class="card-heading" style="margin-bottom: 0.35rem;">No Analysis Reports Found</h3>
+            <p class="secondary-text" style="max-width: 440px; margin: 0 auto 1.25rem;">
+                No saved analyses match your filters. Upload an image on the Skin Analysis page to create a report.
+            </p>
+            <a href="/" class="btn btn-primary">Start Skin Analysis</a>
+        </div>
+    </main>
+
+    <!-- Detail View Modal -->
+    <div class="modal-overlay" id="report-detail-modal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <div>
+                    <h2 class="card-heading" style="font-size: 18px; color: var(--primary);">Analysis Report Details</h2>
+                    <span class="secondary-text" id="modal-report-meta">Reference: -- • Date: --</span>
+                </div>
+                <button type="button" class="modal-close-btn" id="btn-close-report-modal">✕</button>
+            </div>
+
+            <div id="modal-report-body">
+                <!-- Summary Pills -->
+                <div class="report-summary-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 1.25rem;">
+                    <div class="summary-stat-card" style="padding: 0.85rem;">
+                        <div class="stat-label">Category</div>
+                        <div style="font-size: 16px; font-weight: 700; color: var(--primary);" id="modal-stat-disease">--</div>
+                    </div>
+                    <div class="summary-stat-card" style="padding: 0.85rem;">
+                        <div class="stat-label">Confidence</div>
+                        <div style="font-size: 16px; font-weight: 700;" id="modal-stat-confidence">--%</div>
+                    </div>
+                    <div class="summary-stat-card" style="padding: 0.85rem;">
+                        <div class="stat-label">Concern Indicator</div>
+                        <div><span class="concern-badge" id="modal-stat-concern">--</span></div>
+                    </div>
+                    <div class="summary-stat-card" style="padding: 0.85rem;">
+                        <div class="stat-label">Lesion Area</div>
+                        <div style="font-size: 16px; font-weight: 700;" id="modal-stat-area">--%</div>
+                    </div>
+                    <div class="summary-stat-card" style="padding: 0.85rem;">
+                        <div class="stat-label">Estimated Cost</div>
+                        <div style="font-size: 16px; font-weight: 700; color: var(--primary);" id="modal-stat-cost">₹--</div>
+                    </div>
+                </div>
+
+                <!-- 4-Grid Image Analysis -->
+                <h3 class="card-heading" style="margin-bottom: 0.5rem;">Multi-Modal Visual Matrix</h3>
+                <div class="image-analysis-grid" style="margin-bottom: 1.25rem;">
+                    <div class="image-card">
+                        <div class="image-card-header">Original Image</div>
+                        <div class="image-container-wrap" style="height: 180px;">
+                            <img id="modal-img-orig" src="" alt="Original">
+                        </div>
+                    </div>
+                    <div class="image-card">
+                        <div class="image-card-header">U-Net Binary Mask</div>
+                        <div class="image-container-wrap" style="height: 180px;">
+                            <img id="modal-img-mask" src="" alt="Mask">
+                        </div>
+                    </div>
+                    <div class="image-card">
+                        <div class="image-card-header">Boundary Overlay</div>
+                        <div class="image-container-wrap" style="height: 180px;">
+                            <img id="modal-img-overlay" src="" alt="Overlay">
+                        </div>
+                    </div>
+                    <div class="image-card">
+                        <div class="image-card-header">ViT Attention Heatmap</div>
+                        <div class="image-container-wrap" style="height: 180px;">
+                            <img id="modal-img-attention" src="" alt="Attention">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment Cost Table -->
+                <h3 class="card-heading" style="margin-bottom: 0.5rem;">Estimated Treatment Cost (INR)</h3>
+                <div class="cost-table-container" style="margin-bottom: 1.25rem;">
+                    <table class="cost-table">
+                        <thead>
+                            <tr>
+                                <th>Care Component</th>
+                                <th>Scope</th>
+                                <th style="text-align: right;">Estimated Range (INR)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="modal-cost-tbody"></tbody>
+                    </table>
+                </div>
+
+                <!-- Modal Actions -->
+                <div style="display: flex; justify-content: flex-end; gap: 0.75rem; border-top: 1px solid var(--border-color); padding-top: 1rem; flex-wrap: wrap;">
+                    <button type="button" class="btn btn-secondary" id="modal-btn-print">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                            <rect x="6" y="14" width="12" height="8"></rect>
+                        </svg>
+                        Print Report
+                    </button>
+                    <button type="button" class="btn btn-primary" id="modal-btn-download">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="12" y1="18" x2="12" y2="12"></line>
+                            <polyline points="9 15 12 18 15 15"></polyline>
+                        </svg>
+                        <span>Download PDF</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simplified Footer -->
+    <footer class="site-footer">
+        <p class="footer-disclaimer-notice">
+            For educational use only. Not a medical diagnosis. Consult a qualified dermatologist.
+        </p>
+    </footer>
+
+    <script src="/static/js/app.js?v=2.2"></script>
+</body>
+</html>

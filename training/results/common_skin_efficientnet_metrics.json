@@ -1,0 +1,218 @@
+{
+  "model_architecture": "efficientnet_b2",
+  "num_classes": 9,
+  "classes": [
+    "acne",
+    "allergic_contact_dermatitis",
+    "eczema",
+    "impetigo",
+    "psoriasis",
+    "ringworm",
+    "scabies",
+    "seborrheic_dermatitis",
+    "urticaria"
+  ],
+  "class_display_names": {
+    "acne": "Acne",
+    "allergic_contact_dermatitis": "Allergic Contact Dermatitis",
+    "eczema": "Eczema",
+    "impetigo": "Impetigo",
+    "psoriasis": "Psoriasis",
+    "ringworm": "Ringworm (Tinea Corporis)",
+    "scabies": "Scabies",
+    "seborrheic_dermatitis": "Seborrheic Dermatitis",
+    "urticaria": "Urticaria (Hives)"
+  },
+  "input_resolution": [
+    260,
+    260
+  ],
+  "preprocessing": "aspect_ratio_preserving_pad_260",
+  "evaluation_timestamp": "2026-11-24 20:18:10 UTC",
+  "test_samples": 235,
+  "best_training_epoch": 9,
+  "best_val_macro_f1": 0.24057591936886658,
+  "overall_accuracy": 0.225531914893617,
+  "balanced_accuracy": 0.22132888019984795,
+  "macro_precision": 0.21564628272961606,
+  "macro_recall": 0.22132888019984795,
+  "macro_f1": 0.2122203556690897,
+  "weighted_precision": 0.22944131400514378,
+  "weighted_recall": 0.225531914893617,
+  "weighted_f1": 0.2234535344250143,
+  "roc_auc_macro": 0.6374010634766254,
+  "expected_calibration_error": 0.21978956904817137,
+  "cpu_latency": {
+    "mean_latency_ms": 364.8636619991157,
+    "median_latency_ms": 289.9415499996394,
+    "std_latency_ms": 201.05587134879116,
+    "p95_latency_ms": 734.4500949810024,
+    "num_runs": 50
+  },
+  "per_class_metrics": {
+    "acne": {
+      "display_name": "Acne",
+      "precision": 0.5,
+      "recall": 0.5454545454545454,
+      "f1_score": 0.5217391304347826,
+      "support": 33
+    },
+    "allergic_contact_dermatitis": {
+      "display_name": "Allergic Contact Dermatitis",
+      "precision": 0.25,
+      "recall": 0.16666666666666666,
+      "f1_score": 0.2,
+      "support": 30
+    },
+    "eczema": {
+      "display_name": "Eczema",
+      "precision": 0.15384615384615385,
+      "recall": 0.13333333333333333,
+      "f1_score": 0.14285714285714285,
+      "support": 30
+    },
+    "impetigo": {
+      "display_name": "Impetigo",
+      "precision": 0.24,
+      "recall": 0.1935483870967742,
+      "f1_score": 0.21428571428571427,
+      "support": 31
+    },
+    "psoriasis": {
+      "display_name": "Psoriasis",
+      "precision": 0.15625,
+      "recall": 0.16666666666666666,
+      "f1_score": 0.16129032258064516,
+      "support": 30
+    },
+    "ringworm": {
+      "display_name": "Ringworm (Tinea Corporis)",
+      "precision": 0.19230769230769232,
+      "recall": 0.16129032258064516,
+      "f1_score": 0.17543859649122806,
+      "support": 31
+    },
+    "scabies": {
+      "display_name": "Scabies",
+      "precision": 0.14285714285714285,
+      "recall": 0.3333333333333333,
+      "f1_score": 0.2,
+      "support": 12
+    },
+    "seborrheic_dermatitis": {
+      "display_name": "Seborrheic Dermatitis",
+      "precision": 0.16666666666666666,
+      "recall": 0.125,
+      "f1_score": 0.14285714285714285,
+      "support": 8
+    },
+    "urticaria": {
+      "display_name": "Urticaria (Hives)",
+      "precision": 0.1388888888888889,
+      "recall": 0.16666666666666666,
+      "f1_score": 0.15151515151515152,
+      "support": 30
+    }
+  },
+  "confusion_matrix": [
+    [
+      18,
+      1,
+      0,
+      3,
+      3,
+      2,
+      1,
+      2,
+      3
+    ],
+    [
+      0,
+      5,
+      6,
+      4,
+      1,
+      3,
+      3,
+      0,
+      8
+    ],
+    [
+      1,
+      3,
+      4,
+      2,
+      5,
+      5,
+      3,
+      1,
+      6
+    ],
+    [
+      4,
+      3,
+      3,
+      6,
+      7,
+      2,
+      2,
+      1,
+      3
+    ],
+    [
+      2,
+      1,
+      5,
+      3,
+      5,
+      3,
+      3,
+      0,
+      8
+    ],
+    [
+      1,
+      4,
+      6,
+      6,
+      2,
+      5,
+      4,
+      0,
+      3
+    ],
+    [
+      3,
+      0,
+      1,
+      0,
+      4,
+      0,
+      4,
+      0,
+      0
+    ],
+    [
+      3,
+      0,
+      0,
+      0,
+      1,
+      3,
+      0,
+      1,
+      0
+    ],
+    [
+      4,
+      3,
+      1,
+      1,
+      4,
+      3,
+      8,
+      1,
+      5
+    ]
+  ]
+}

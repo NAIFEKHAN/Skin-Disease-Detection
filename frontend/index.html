@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Skin Analysis | Skin Disease Detection</title>
+    <link rel="stylesheet" href="/static/css/style.css?v=2.3">
+</head>
+<body>
+    <!-- Header with Forest Green Identity -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="header-brand-group">
+                <button class="hamburger-btn" id="btn-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <a href="/" class="app-title">Skin Disease Detection</a>
+            </div>
+            <nav class="desktop-nav" aria-label="Desktop Navigation">
+                <ul class="nav-menu">
+                    <li><a href="/" class="nav-item-link active">Skin Analysis</a></li>
+                    <li><a href="/library" class="nav-item-link">Disease Library</a></li>
+                    <li><a href="/reports" class="nav-item-link">Reports</a></li>
+                    <li><a href="/about" class="nav-item-link">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+
+    <!-- Mobile Navigation Drawer (Off-Canvas Sidebar) -->
+    <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+        <div class="drawer-header">
+            <span class="drawer-brand-title">Menu</span>
+            <button type="button" class="drawer-close-btn" id="btn-close-drawer" aria-label="Close navigation menu">
+                ✕
+            </button>
+        </div>
+        <nav class="drawer-nav">
+            <ul class="drawer-menu">
+                <li>
+                    <a href="/" class="drawer-item-link active">
+                        <svg class="drawer-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+                            <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+                            <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+                            <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+                            <line x1="7" y1="12" x2="17" y2="12"></line>
+                        </svg>
+                        <span>Skin Analysis</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/library" class="drawer-item-link">
+                        <svg class="drawer-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                        <span>Disease Library</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/reports" class="drawer-item-link">
+                        <svg class="drawer-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/about" class="drawer-item-link">
+                        <svg class="drawer-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        <span>About</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="drawer-footer-note">
+            AI Skin Disease Detection
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-container skin-analysis-main">
+        <!-- Global Alert Box -->
+        <div id="alert-box" style="display: none; padding: 0.85rem 1.15rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; font-size: 14px; font-weight: 500;"></div>
+
+        <!-- Upload Card -->
+        <section class="card" id="upload-card">
+            <div class="card-header">
+                <h1 class="card-heading">Upload Skin Image</h1>
+                <span class="badge-tag">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    Best results with clear dermoscopic images
+                </span>
+            </div>
+
+            <!-- Hidden File & Camera Inputs -->
+            <input type="file" id="file-input" class="file-input-hidden" accept="image/jpeg,image/png,image/jpg">
+            <input type="file" id="camera-input" class="file-input-hidden" accept="image/*" capture="environment">
+
+            <!-- Centered Dropzone -->
+            <div class="dropzone-box" id="dropzone">
+                <div class="dropzone-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                </div>
+                <div class="dropzone-title">Drag & Drop Skin Image Here</div>
+                <p class="secondary-text" style="margin-bottom: 1rem;">Supports high-resolution JPEG, JPG, and PNG files up to 15 MB</p>
+                <div class="action-buttons-strip">
+                    <button type="button" class="btn btn-secondary" id="btn-choose-file">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        Choose Image
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="btn-take-photo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
+                        Take Photo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quality Assessment Feedback Box -->
+            <div class="quality-feedback-box" id="quality-box" style="display: none;">
+                <span id="quality-icon">🔍</span>
+                <div id="quality-text">Checking image quality...</div>
+            </div>
+
+            <!-- Light Green Guidance Box -->
+            <div class="camera-advice-note">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <div>
+                    <strong>Camera Note:</strong> This AI model was trained mainly on dermoscopic skin images. Normal mobile photos may give less reliable results.
+                </div>
+            </div>
+
+            <!-- Image Preview Box -->
+            <div class="image-preview-card" id="preview-box">
+                <div class="preview-thumbnail">
+                    <img id="preview-img" src="" alt="Selected skin lesion preview">
+                </div>
+                <div class="preview-meta">
+                    <div style="font-weight: 700; color: var(--text-primary); font-size: 15px;" id="preview-filename">image.jpg</div>
+                    <div class="secondary-text" id="preview-filesize" style="margin-top: 0.2rem;">0 KB</div>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap;">
+                        <button type="button" class="btn btn-secondary" id="btn-retake" style="padding: 0.4rem 0.85rem; font-size: 13.5px; min-height: 38px;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="1 4 1 10 7 10"></polyline>
+                                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                            </svg>
+                            Retake Photo
+                        </button>
+                        <button type="button" class="btn btn-danger" id="btn-remove-image" style="padding: 0.4rem 0.85rem; font-size: 13.5px; min-height: 38px;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                            </svg>
+                            Remove Image
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary" id="btn-analyze" disabled style="padding: 0.75rem 1.75rem; font-size: 15px;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        Analyse Image
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading Indicator Box -->
+            <div class="loading-indicator-box" id="loading-spinner">
+                <div class="spinner"></div>
+                <div style="font-weight: 700; color: var(--primary); font-size: 16px;">Running AI Analysis Pipeline...</div>
+                <div class="secondary-text" style="margin-top: 0.35rem;">
+                    Computing U-Net lesion segmentation, Vision Transformer classification, and attention map.
+                </div>
+            </div>
+        </section>
+
+        <!-- Complete On-Page Analysis Report (Revealed Upon Inference) -->
+        <section class="report-section" id="report-section">
+            <!-- 1. Prediction Summary: Report Header Banner & 4 Stat Cards -->
+            <div class="report-header-banner">
+                <div>
+                    <span class="secondary-text" style="font-size: 12.5px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; color: var(--primary);">
+                        Analysis Completed
+                    </span>
+                    <h2 class="section-heading" style="margin-bottom: 0.2rem;">Skin Analysis & Cost Estimation Report</h2>
+                    <div class="secondary-text" id="report-meta-text">
+                        Reference: -- • Date: --
+                    </div>
+                </div>
+                <!-- Top Quick Action Row -->
+                <div class="report-action-buttons">
+                    <button type="button" class="btn btn-primary" id="btn-download-pdf">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="12" y1="18" x2="12" y2="12"></line>
+                            <polyline points="9 15 12 18 15 15"></polyline>
+                        </svg>
+                        <span>Download PDF</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="btn-print-report">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                            <rect x="6" y="14" width="12" height="8"></rect>
+                        </svg>
+                        Print Report
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="btn-new-analysis">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="1 4 1 10 7 10"></polyline>
+                            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                        </svg>
+                        Start New Analysis
+                    </button>
+                </div>
+            </div>
+
+            <!-- Report Summary: 4 Summary Stat Cards -->
+            <div class="report-summary-grid">
+                <!-- 1. Primary Disease Category -->
+                <div class="summary-stat-card">
+                    <div class="stat-label">Predicted Category</div>
+                    <div class="stat-value" id="res-disease-name" style="color: var(--primary);">--</div>
+                    <div class="secondary-text" style="margin-top: 0.35rem;">
+                        Category Code: <strong id="res-disease-code">--</strong>
+                    </div>
+                </div>
+
+                <!-- 2. Model Confidence Score -->
+                <div class="summary-stat-card">
+                    <div class="stat-label">Model Confidence</div>
+                    <div class="stat-value" id="res-confidence">--%</div>
+                    <div class="secondary-text" style="margin-top: 0.35rem;">
+                        ViT-B/16 Probability
+                    </div>
+                </div>
+
+                <!-- 3. Prototype Concern Indicator -->
+                <div class="summary-stat-card">
+                    <div class="stat-label">Concern Indicator</div>
+                    <div class="stat-value">
+                        <span class="concern-badge" id="res-concern-badge" style="background-color: var(--primary);">--</span>
+                    </div>
+                    <div class="secondary-text" id="res-concern-rationale" style="margin-top: 0.35rem;">
+                        Algorithmic triage indicator
+                    </div>
+                </div>
+
+                <!-- 4. Relative Lesion Coverage -->
+                <div class="summary-stat-card">
+                    <div class="stat-label">Lesion Coverage Area</div>
+                    <div class="stat-value" id="res-lesion-area">--%</div>
+                    <div class="secondary-text" style="margin-top: 0.35rem;">
+                        Segmented via U-Net (Threshold 0.70)
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Disease Prediction Bar Chart -->
+            <div class="card" id="card-prediction-chart">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-heading">Top-3 Disease Predictions</h3>
+                        <span class="secondary-text" style="font-size: 13px;">Model scores across primary differential categories</span>
+                    </div>
+                    <span class="badge-tag">ViT-B/16 Multi-Class Softmax</span>
+                </div>
+                <div class="chart-container" style="position: relative; height: 210px; width: 100%;">
+                    <canvas id="chart-predictions" aria-label="Top-3 Disease Predictions Bar Chart" role="img"></canvas>
+                </div>
+                <div class="differential-panel" id="res-differential-list" style="margin-top: 0.85rem;">
+                    <!-- Populated dynamically with formatted list -->
+                </div>
+                <p class="secondary-text" style="font-size: 12px; margin-top: 0.65rem;">
+                    *Values represent Vision Transformer model probability scores across differential categories, not definitive clinical probabilities.
+                </p>
+            </div>
+
+            <!-- 3. Image Analysis: 4 Visual Cards -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-heading">Image Analysis (Segmentation & Explainability)</h3>
+                    <span class="secondary-text" style="font-size: 13px;">Click any image to enlarge</span>
+                </div>
+                <div class="image-analysis-grid">
+                    <!-- 1. Original Image -->
+                    <div class="image-card">
+                        <div class="image-card-header">
+                            <span>(A) Original Image</span>
+                            <span class="secondary-text" style="font-size: 12px;">Input Photo</span>
+                        </div>
+                        <div class="image-container-wrap" data-label="Original Image">
+                            <img id="img-card-orig" src="" alt="Original skin lesion photograph">
+                        </div>
+                        <div class="image-card-caption">
+                            Original skin lesion image submitted for computerized evaluation.
+                        </div>
+                    </div>
+
+                    <!-- 2. Segmentation Mask -->
+                    <div class="image-card">
+                        <div class="image-card-header">
+                            <span>(B) Segmentation Mask</span>
+                            <span class="secondary-text" style="font-size: 12px;">U-Net (Threshold 0.70)</span>
+                        </div>
+                        <div class="image-container-wrap" data-label="U-Net Binary Segmentation Mask">
+                            <img id="img-card-mask" src="" alt="U-Net binary lesion mask">
+                        </div>
+                        <div class="image-card-caption">
+                            Binary lesion boundary mask extracted by ResNet18 U-Net (White: Lesion, Black: Skin).
+                        </div>
+                    </div>
+
+                    <!-- 3. Boundary Overlay -->
+                    <div class="image-card">
+                        <div class="image-card-header">
+                            <span>(C) Lesion Boundary Overlay</span>
+                            <span class="secondary-text" style="font-size: 12px;">Cyan Contour</span>
+                        </div>
+                        <div class="image-container-wrap" data-label="Lesion Boundary Contour Overlay">
+                            <img id="img-card-overlay" src="" alt="Lesion boundary contour overlay">
+                        </div>
+                        <div class="image-card-caption">
+                            Original image highlighted with segmented lesion boundary contour.
+                        </div>
+                    </div>
+
+                    <!-- 4. Attention Map -->
+                    <div class="image-card">
+                        <div class="image-card-header">
+                            <span>(D) AI Attention Map</span>
+                            <span class="secondary-text" style="font-size: 12px;">Attention Rollout</span>
+                        </div>
+                        <div class="image-container-wrap" data-label="Vision Transformer Attention Rollout Heatmap">
+                            <img id="img-card-attention" src="" alt="ViT-B/16 Attention rollout heatmap">
+                        </div>
+                        <div class="image-card-caption">
+                            Self-attention heatmap highlighting the focus areas of the Vision Transformer.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Lesion Coverage Doughnut Chart -->
+            <div class="card" id="card-lesion-chart">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-heading">Lesion Image Coverage Area</h3>
+                        <span class="secondary-text" style="font-size: 13px;">U-Net binary segmentation ratio</span>
+                    </div>
+                    <span class="badge-tag">ResNet18 U-Net (Threshold 0.70)</span>
+                </div>
+                <div class="coverage-chart-layout">
+                    <div class="chart-container doughnut-chart-wrap" style="position: relative; max-width: 250px; height: 230px; margin: 0 auto;">
+                        <canvas id="chart-lesion-coverage" aria-label="Lesion Image Coverage Doughnut Chart" role="img"></canvas>
+                        <div class="doughnut-center-label" id="doughnut-center-text">
+                            <span class="doughnut-pct" id="doughnut-pct-val">0.0%</span>
+                            <span class="doughnut-sub">Coverage</span>
+                        </div>
+                    </div>
+                    <div class="coverage-chart-meta">
+                        <div class="coverage-legend-item">
+                            <span class="legend-color-dot" style="background-color: #FF8500;"></span>
+                            <div>
+                                <strong style="color: var(--text-primary);">Predicted Lesion Region: </strong>
+                                <span id="coverage-lesion-pct">--%</span>
+                            </div>
+                        </div>
+                        <div class="coverage-legend-item">
+                            <span class="legend-color-dot" style="background-color: #AEE2F5;"></span>
+                            <div>
+                                <strong style="color: var(--text-primary);">Surrounding Skin / Background: </strong>
+                                <span id="coverage-skin-pct">--%</span>
+                            </div>
+                        </div>
+                        <div class="camera-advice-note" style="margin-top: 0.85rem; margin-bottom: 0;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            <div>
+                                <strong>Clinical Note:</strong> Represents relative pixel coverage within the 2D photograph, not physical lesion diameter, depth, or clinical staging.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Disease Information: Educational Overview -->
+            <div class="card" id="disease-info-container">
+                <div class="card-header">
+                    <h3 class="card-heading">Disease Information</h3>
+                    <span class="secondary-text" style="font-size: 13px;">Educational Reference</span>
+                </div>
+                <div class="disease-edu-box">
+                    <h4 id="edu-title">About the Predicted Category</h4>
+                    <p id="edu-description">Educational information about this skin lesion category will appear here.</p>
+                    <div style="margin-top: 0.85rem;">
+                        <strong style="font-size: 13.5px; color: var(--primary);">Common Characteristics:</strong>
+                        <div class="feature-tag-list" id="edu-characteristics">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                    <div style="margin-top: 0.85rem; font-size: 13.5px;" id="edu-clinical-section">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Treatment Cost Comparison Bar Chart -->
+            <div class="card" id="card-cost-chart">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-heading">Treatment Cost Comparison (Min vs Max INR)</h3>
+                        <span class="secondary-text" style="font-size: 13px;">Benchmark Indian dermatological tariffs across 5 tiers</span>
+                    </div>
+                    <span class="badge-tag">Indicative Benchmark</span>
+                </div>
+                <div class="chart-container" style="position: relative; height: 280px; width: 100%;">
+                    <canvas id="chart-cost-comparison" aria-label="Treatment Cost Comparison Bar Chart" role="img"></canvas>
+                </div>
+                <div class="cost-chart-total-strip" id="cost-chart-total-banner">
+                    <div class="cost-chart-total-item">
+                        <span class="cost-total-label">Total Minimum Benchmark:</span>
+                        <strong class="cost-total-val" id="cost-total-min" style="color: #00AFE0;">₹0</strong>
+                    </div>
+                    <div class="cost-chart-total-item">
+                        <span class="cost-total-label">Total Maximum Benchmark:</span>
+                        <strong class="cost-total-val" id="cost-total-max" style="color: #FF8500;">₹0</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Itemized Treatment Cost Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-heading">Itemized Treatment Cost Table (INR)</h3>
+                    <span class="secondary-text" style="font-size: 13px;">Scope & Tariffs Breakdown</span>
+                </div>
+                <p class="secondary-text" style="margin-bottom: 1rem;">
+                    Estimated price ranges reflect benchmark tariffs for typical private dermatological facilities in India. Actual costs vary based on clinic category, location, and clinical requirements.
+                </p>
+                <div class="cost-table-container">
+                    <table class="cost-table">
+                        <thead>
+                            <tr>
+                                <th>Care Component</th>
+                                <th>Scope of Care</th>
+                                <th style="text-align: right; width: 220px;">Estimated Range (INR)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cost-table-tbody">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 8. Report Actions Row (Prominent Bottom Action Center) -->
+            <div class="card report-final-actions-card">
+                <div class="card-header" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+                    <div>
+                        <h3 class="card-heading">Report Actions</h3>
+                        <span class="secondary-text" style="font-size: 13px;">Save or print this clinical decision-support summary</span>
+                    </div>
+                    <div class="report-action-buttons">
+                        <button type="button" class="btn btn-primary" id="btn-download-pdf-bottom">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="12" y1="18" x2="12" y2="12"></line>
+                                <polyline points="9 15 12 18 15 15"></polyline>
+                            </svg>
+                            <span>Download PDF</span>
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="btn-print-report-bottom">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                                <rect x="6" y="14" width="12" height="8"></rect>
+                            </svg>
+                            Print Report
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="btn-new-analysis-bottom">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="1 4 1 10 7 10"></polyline>
+                                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                            </svg>
+                            Start New Analysis
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accuracy Warning & Medical Advisory Strip -->
+            <div class="accuracy-warning-strip">
+                <strong>Model Limitations & Diagnostic Advisory:</strong>
+                This prototype was evaluated on genuine HAM10000 dermoscopic test images with an overall multiclass accuracy of <strong>64.59%</strong> and a Melanoma recall of <strong>47.73%</strong>. Benign model predictions must <em>never</em> be interpreted as proof that malignancy is absent. Early melanoma and benign keratoses often present shared morphological traits. Always consult a qualified dermatologist for any new, changing, irregular, or symptomatic skin lesion.
+            </div>
+        </section>
+    </main>
+
+    <!-- Live Camera Capture Modal -->
+    <div class="modal-overlay" id="camera-modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-dialog camera-modal-dialog">
+            <div class="camera-modal-header">
+                <div class="camera-modal-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="camera-modal-icon">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                        <circle cx="12" cy="13" r="4"></circle>
+                    </svg>
+                    <span>Live Camera Capture</span>
+                </div>
+                <button type="button" class="modal-close-btn" id="btn-close-camera" aria-label="Close Camera">✕</button>
+            </div>
+
+            <!-- Error / Warning Banner -->
+            <div class="camera-alert-box" id="camera-alert" style="display: none;">
+                <div id="camera-alert-text"></div>
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-camera-fallback" style="margin-top: 0.65rem; display: none;">
+                    Use File Picker Instead
+                </button>
+            </div>
+
+            <!-- Viewport Container -->
+            <div class="camera-viewport-wrap" id="camera-viewport">
+                <video id="camera-video" autoplay playsinline muted></video>
+                <img id="camera-preview-img" alt="Captured snapshot preview" style="display: none;">
+                <canvas id="camera-canvas" style="display: none;"></canvas>
+
+                <!-- Camera Target Reticle Overlay -->
+                <div class="camera-reticle" id="camera-reticle">
+                    <div class="reticle-corner reticle-tl"></div>
+                    <div class="reticle-corner reticle-tr"></div>
+                    <div class="reticle-corner reticle-bl"></div>
+                    <div class="reticle-corner reticle-br"></div>
+                    <div class="reticle-center-cross"></div>
+                </div>
+
+                <!-- Camera Switcher Floating Badge -->
+                <button type="button" class="camera-switch-pill" id="btn-switch-camera" style="display: none;" title="Switch Camera">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 10c0-4.418-3.582-8-8-8s-8 3.582-8 8c0 1.5.4 2.9 1.1 4.1L3 17h6v-6L6.8 13.2C6.3 12.2 6 11.1 6 10c0-3.314 2.686-6 6-6s6 2.686 6 6c0 1.657-.672 3.156-1.757 4.243"></path>
+                        <path d="M4 14c0 4.418 3.582 8 8 8s8-3.582 8-8c0-1.5-.4-2.9-1.1-4.1L21 7h-6v6l2.2-2.2c.5 1 0.8 2.1 0.8 3.2 0 3.314-2.686 6-6 6s-6-2.686-6-6"></path>
+                    </svg>
+                    <span id="camera-switch-label">Switch Camera</span>
+                </button>
+            </div>
+
+            <!-- Camera Guidance Note -->
+            <div class="camera-advice-note" style="margin-top: 0.85rem; margin-bottom: 1rem;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <div>
+                    <strong>Capture Tip:</strong> Center the skin lesion inside the reticle under uniform lighting. Ensure sharp focus before capturing.
+                </div>
+            </div>
+
+            <!-- Action Controls Strip -->
+            <div class="camera-controls-strip">
+                <!-- Live Capture State Buttons -->
+                <div id="camera-live-controls" style="display: flex; gap: 0.75rem; width: 100%; justify-content: center; align-items: center; flex-wrap: wrap;">
+                    <button type="button" class="btn btn-secondary" id="btn-camera-cancel">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary" id="btn-camera-capture" style="padding: 0.75rem 2rem; font-size: 15px;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        Capture Photo
+                    </button>
+                </div>
+
+                <!-- Review State Buttons (Visible after snapshot) -->
+                <div id="camera-review-controls" style="display: none; gap: 0.75rem; width: 100%; justify-content: center; align-items: center; flex-wrap: wrap;">
+                    <button type="button" class="btn btn-secondary" id="btn-camera-retake" style="padding: 0.75rem 1.5rem; font-size: 15px;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="1 4 1 10 7 10"></polyline>
+                            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                        </svg>
+                        Retake Photo
+                    </button>
+                    <button type="button" class="btn btn-primary" id="btn-camera-use" style="padding: 0.75rem 2rem; font-size: 15px;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Use Photo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Lightbox Modal for Enlarged Preview -->
+    <div class="modal-overlay" id="lightbox-modal">
+        <div class="modal-dialog">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; color: #FFFFFF;">
+                <h3 style="font-size: 16px; font-weight: 700;" id="lightbox-title">Image Preview</h3>
+                <button type="button" class="modal-close-btn" id="btn-close-lightbox" style="color: #FFFFFF;">✕</button>
+            </div>
+            <img id="lightbox-img" src="" alt="Enlarged view">
+        </div>
+    </div>
+
+    <!-- Simplified Footer -->
+    <footer class="site-footer">
+        <p class="footer-disclaimer-notice">
+            For educational use only. Not a medical diagnosis. Consult a qualified dermatologist.
+        </p>
+    </footer>
+
+    <script src="/static/js/chart.min.js"></script>
+    <script src="/static/js/app.js?v=2.3"></script>
+</body>
+</html>

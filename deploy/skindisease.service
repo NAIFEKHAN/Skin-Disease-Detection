@@ -1,0 +1,22 @@
+[Unit]
+Description=AI Skin Disease Detection FastAPI Application
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/skindisease
+Environment="PYTHONUNBUFFERED=1"
+Environment="PATH=/home/ubuntu/skindisease/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/home/ubuntu/skindisease/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8015 --workers 1 --timeout-keep-alive 65
+Restart=always
+RestartSec=5s
+
+# Security and path permissions
+PrivateTmp=true
+NoNewPrivileges=true
+ReadWritePaths=/home/ubuntu/skindisease
+
+[Install]
+WantedBy=multi-user.target

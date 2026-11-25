@@ -1,0 +1,56 @@
+﻿# Local and server secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*
+.htpasswd*
+*.sqlite
+*.sqlite3
+*.db
+*.db-*
+
+# Patient data and generated output
+uploads/*
+!uploads/.gitkeep
+reports/*
+!reports/.gitkeep
+data/raw_masks/
+data/classification/
+data/segmentation/
+data/common_skin/
+data/scin_metadata/
+data/manifests/
+data/HAM10000_metadata.csv
+
+# Models and archives are distributed through GitHub Releases
+*.pt
+*.pth
+*.onnx
+*.bin
+*.zip
+backups/
+checkpoints/
+models/smoke_test/
+
+# Local environments and caches
+venv/
+env/
+ENV/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.idea/
+.vscode/
+*.log
+.DS_Store
+Thumbs.db
+
+# Training sample images
+training/results/samples/
+training/results/vit_samples/

@@ -1,0 +1,23 @@
+# AI-Based Skin Disease Detection with Treatment Cost Estimation
+# Project Dependencies
+
+# Web Framework & Server
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+python-multipart>=0.0.9
+pydantic>=2.6.0
+
+# Deep Learning & Computer Vision
+torch>=2.2.0
+torchvision>=0.17.0
+timm>=0.9.16
+opencv-python>=4.9.0.80
+
+# Data Science & Machine Learning
+numpy>=1.26.0
+pandas>=2.2.0
+scikit-learn>=1.4.0
+matplotlib>=3.8.0
+
+# PDF Report Generation
+reportlab>=4.1.0

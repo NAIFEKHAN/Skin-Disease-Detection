@@ -1,0 +1,568 @@
+{
+  "diseases": [
+    {
+      "code": "MEL",
+      "name": "Melanoma",
+      "category_type": "Malignant Skin Cancer",
+      "short_description": "A serious form of skin cancer arising from melanocytes (pigment-producing cells). Characterized by asymmetry, irregular borders, and color variability.",
+      "representative_image": "ISIC_0026586.jpg",
+      "risk_level": "High Concern",
+      "common_characteristics": [
+        "Asymmetry: One half of the spot does not match the other half",
+        "Border irregularity: Edges are ragged, notched, blurred, or poorly defined",
+        "Color variation: Shades of brown, black, sometimes with patches of pink, red, white, or blue",
+        "Diameter: Typically greater than 6 mm, though can be smaller in early stages",
+        "Evolving: Changing in size, shape, color, or elevation over time"
+      ],
+      "diagnostic_approaches": [
+        "Clinical dermoscopy evaluating pigment network, atypical dots/globules, and blue-white veil",
+        "Excisional biopsy with narrow margins for formal histopathological examination",
+        "Microscopic Breslow thickness and ulceration assessment",
+        "Sentinel lymph node biopsy for deeper or higher-risk lesions"
+      ],
+      "treatment_approaches": [
+        "Wide local surgical excision with clear histological margins",
+        "Lymph node dissection when regional metastasis is suspected or confirmed",
+        "Immunotherapy (checkpoint inhibitors such as PD-1 or CTLA-4 inhibitors)",
+        "Targeted therapy for lesions harboring BRAF V600 mutations",
+        "Adjuvant radiotherapy in select high-risk or advanced scenarios"
+      ],
+      "when_to_seek_care": "Promptly consult a dermatologist if any existing mole changes in size, shape, or color, if a new persistent pigmented lesion develops, or if a lesion bleeds, itches, or fails to heal.",
+      "sources": [
+        "American Academy of Dermatology (AAD) Melanoma Guidelines",
+        "World Health Organization (WHO) Skin Cancer Advisory",
+        "DermNet NZ (Dermatology Resource)"
+      ],
+      "mode": "dermoscopy",
+      "ai_supported": true,
+      "support_status": "AI Analysis Active"
+    },
+    {
+      "code": "NV",
+      "name": "Melanocytic Nevi",
+      "category_type": "Benign Pigmented Lesion",
+      "short_description": "Common benign skin growths composed of clustered melanocytes, commonly known as moles. Usually harmless and stable in appearance.",
+      "representative_image": "ISIC_0029105.jpg",
+      "risk_level": "Low Concern",
+      "common_characteristics": [
+        "Symmetrical round or oval shape with smooth, well-demarcated margins",
+        "Uniform pigmentation, typically ranging from tan to dark brown",
+        "Can be flat (junctional), slightly raised (compound), or dome-shaped (intradermal)",
+        "Usually stable over long periods once adulthood is reached"
+      ],
+      "diagnostic_approaches": [
+        "Dermoscopic assessment revealing regular, uniform pigment networks or homogenous patterns",
+        "Digital dermoscopy surveillance for individuals with dysplastic or multiple nevi",
+        "Diagnostic biopsy only if architectural atypia or suspicious evolution is noted"
+      ],
+      "treatment_approaches": [
+        "Clinical observation and routine sun protection; no treatment needed for benign nevi",
+        "Elective surgical excision or shave biopsy if mechanically irritated or cosmetically desired",
+        "Histological examination if removed to verify absence of dysplasia or malignancy"
+      ],
+      "when_to_seek_care": "Seek medical review if a mole develops the ABCDE warning signs (Asymmetry, Border irregularity, Color changes, Diameter >6mm, Evolution) or becomes symptomatic.",
+      "sources": [
+        "British Association of Dermatologists (BAD)",
+        "American Academy of Dermatology (AAD)",
+        "DermNet NZ"
+      ],
+      "mode": "dermoscopy",
+      "ai_supported": true,
+      "support_status": "AI Analysis Active"
+    },
+    {
+      "code": "BCC",
+      "name": "Basal Cell Carcinoma",
+      "category_type": "Malignant Skin Cancer (Locally Invasive)",
+      "short_description": "The most common form of skin cancer. Arises in the basal layer of the epidermis, typically slow-growing and rarely metastasizing, but locally destructive if untreated.",
+      "representative_image": "ISIC_0028973.jpg",
+      "risk_level": "Moderate Concern",
+      "common_characteristics": [
+        "Translucent, pearly, or waxy papule or nodule often with rolled borders",
+        "Visible branching blood vessels (arborizing telangiectasia) across the surface",
+        "Central ulceration, crusted depression, or persistent non-healing sore",
+        "Commonly located on chronically sun-exposed areas (face, ears, neck, scalp)"
+      ],
+      "diagnostic_approaches": [
+        "Dermoscopy identifying arborizing telangiectasia, leaf-like structures, or blue-gray ovoid nests",
+        "Punch, shave, or incisional skin biopsy to confirm histological subtype",
+        "Clinical mapping of lesion margins before definitive excision"
+      ],
+      "treatment_approaches": [
+        "Standard surgical excision with 4–5 mm clear margins",
+        "Mohs micrographic surgery for high-risk, recurrent, or cosmetically sensitive facial sites",
+        "Electrodesiccation and curettage for small superficial low-risk lesions",
+        "Topical therapy (imiquimod, 5-FU) or photodynamic therapy for selected superficial BCCs",
+        "Targeted oral Hedgehog pathway inhibitors for locally advanced or inoperable cases"
+      ],
+      "when_to_seek_care": "Consult a healthcare provider for any shiny bump, pink growth, or sore that bleeds easily, crusts over, or persists for more than 3 to 4 weeks.",
+      "sources": [
+        "National Comprehensive Cancer Network (NCCN) Guidelines for BCC",
+        "British Association of Dermatologists (BAD)",
+        "Skin Cancer Foundation"
+      ],
+      "mode": "dermoscopy",
+      "ai_supported": true,
+      "support_status": "AI Analysis Active"
+    },
+    {
+      "code": "AKIEC",
+      "name": "Actinic Keratoses & Intraepithelial Carcinoma",
+      "category_type": "Precancerous / In-Situ Keratinocytic Lesion",
+      "short_description": "Rough, scaly patches caused by chronic ultraviolet light exposure. Considered precancerous lesions that can potentially progress to invasive Squamous Cell Carcinoma (SCC).",
+      "representative_image": "ISIC_0025029.jpg",
+      "risk_level": "Moderate Concern",
+      "common_characteristics": [
+        "Dry, rough, gritty, or sandpaper-like texture on sun-damaged skin",
+        "Flat or slightly raised red, pink, or brownish scaly plaques",
+        "Often more easily felt by light palpation than observed visually",
+        "Frequent on face, balding scalp, ears, forearms, and backs of hands"
+      ],
+      "diagnostic_approaches": [
+        "Clinical tactile and dermoscopic examination revealing 'strawberry' or rosette patterns",
+        "Dermatopathology biopsy if lesion is indurated, tender, or exhibits significant hyperkeratosis"
+      ],
+      "treatment_approaches": [
+        "Cryotherapy with liquid nitrogen for isolated individual lesions",
+        "Field-directed topical therapy (5-fluorouracil, imiquimod cream, or tirbanibulin)",
+        "Photodynamic therapy (PDT) for extensive sun-damaged fields",
+        "Curettage or surgical excision if progression to invasive SCC is suspected"
+      ],
+      "when_to_seek_care": "Schedule a medical evaluation for scaly patches that persist, thicken, become tender, or develop elevated ulcerated borders.",
+      "sources": [
+        "American Academy of Dermatology (AAD)",
+        "European Dermatology Forum (EDF) Guidelines",
+        "DermNet NZ"
+      ],
+      "mode": "dermoscopy",
+      "ai_supported": true,
+      "support_status": "AI Analysis Active"
+    },
+    {
+      "code": "BKL",
+      "name": "Benign Keratosis-like Lesions",
+      "category_type": "Benign Epidermal Growth",
+      "short_description": "Non-cancerous skin conditions including seborrheic keratoses, solar lentigines, and lichen planus-like keratoses. Very common with advancing age.",
+      "representative_image": "ISIC_0025874.jpg",
+      "risk_level": "Low Concern",
+      "common_characteristics": [
+        "Waxy, scaly, or 'stuck-on' appearance sitting on the skin surface",
+        "Color ranges from light tan and yellow to deep brown or black",
+        "Well-demarcated edges with a granular, verrucous, or velvety surface",
+        "Completely benign with no intrinsic malignant transformation potential"
+      ],
+      "diagnostic_approaches": [
+        "Dermoscopy revealing characteristic comedo-like openings, milia-like cysts, and hairpin vessels",
+        "Shave biopsy performed if heavily pigmented and clinically mimicking melanoma"
+      ],
+      "treatment_approaches": [
+        "Reassurance and clinical observation; therapeutic intervention is not medically required",
+        "Cryosurgery, shave removal, or curettage if irritated by clothing or cosmetically bothersome",
+        "Electrocautery for small pedunculated or superficial lesions"
+      ],
+      "when_to_seek_care": "Consult a doctor if a lesion rapidly darkens, develops asymmetric growth, bleeds spontaneously, or cannot be reliably distinguished from melanoma.",
+      "sources": [
+        "British Association of Dermatologists (BAD)",
+        "American Academy of Dermatology (AAD)",
+        "DermNet NZ"
+      ],
+      "mode": "dermoscopy",
+      "ai_supported": true,
+      "support_status": "AI Analysis Active"
+    },
+    {
+      "code": "DF",
+      "name": "Dermatofibroma",
+      "category_type": "Benign Fibrohistiocytic Growth",
+      "short_description": "A common, harmless cutaneous nodule composed of fibrous tissue and histiocytes, often arising secondary to minor trauma or insect bites.",
+      "representative_image": "ISIC_0029177.jpg",
+      "risk_level": "Low Concern",
+      "common_characteristics": [
+        "Firm, button-like solitary nodule typically felt within the dermis",
+        "Color varies from pink and reddish-brown to dark tan",
+        "Positive 'dimple sign': dimples inward when squeezed laterally between thumb and forefinger",
+        "Most commonly located on lower legs of young to middle-aged adults"
+      ],
+      "diagnostic_approaches": [
+        "Clinical palpatory assessment and elicitation of the dimple sign",
+        "Dermoscopy classically showing a central white scar-like patch with a delicate peripheral pigment network",
+        "Biopsy reserved for atypical, growing, or painful variants"
+      ],
+      "treatment_approaches": [
+        "Reassurance; no treatment is necessary as lesions are completely benign",
+        "Complete simple surgical excision if symptomatic, repeatedly traumatized, or cosmetically undesired",
+        "Superficial cryotherapy to flatten raised contours"
+      ],
+      "when_to_seek_care": "Seek clinical evaluation if a firm nodule changes rapidly, bleeds, becomes painful, or lacks characteristic benign dermoscopic features.",
+      "sources": [
+        "British Association of Dermatologists (BAD)",
+        "American Academy of Dermatology (AAD)",
+        "DermNet NZ"
+      ],
+      "mode": "dermoscopy",
+      "ai_supported": true,
+      "support_status": "AI Analysis Active"
+    },
+    {
+      "code": "VASC",
+      "name": "Vascular Lesions",
+      "category_type": "Benign Vascular Proliferation",
+      "short_description": "Non-cancerous proliferations of blood vessels including cherry angiomas, angiokeratomas, and pyogenic granulomas.",
+      "representative_image": "ISIC_0031759.jpg",
+      "risk_level": "Low Concern",
+      "common_characteristics": [
+        "Bright red, purple, or violaceous macules, papules, or small nodules",
+        "Blanching or partial blanching under diascopy (pressure from a glass slide)",
+        "Smooth or dome-shaped surface with well-defined borders",
+        "Common cherry angiomas multiply harmlessly with age on the trunk and limbs"
+      ],
+      "diagnostic_approaches": [
+        "Clinical inspection and diascopy assessment",
+        "Dermoscopy revealing red, purple, or blue-black round lacunae (vascular lagoons)",
+        "Biopsy indicated if lesion is thrombosed, dark, or mimics nodular melanoma"
+      ],
+      "treatment_approaches": [
+        "No treatment required for asymptomatic, stable benign lesions",
+        "Vascular laser therapy (pulsed dye laser, Nd:YAG) for cosmetic clearance",
+        "Electrocautery, curettage, or shave excision for bleeding pyogenic granulomas"
+      ],
+      "when_to_seek_care": "Consult a healthcare provider if a red spot bleeds profusely, turns black, grows rapidly, or causes recurrent discomfort.",
+      "sources": [
+        "British Association of Dermatologists (BAD)",
+        "American Academy of Dermatology (AAD)",
+        "DermNet NZ"
+      ],
+      "mode": "dermoscopy",
+      "ai_supported": true,
+      "support_status": "AI Analysis Active"
+    },
+    {
+      "code": "ACNE",
+      "name": "Acne",
+      "category_type": "Inflammatory Pilosebaceous Disorder",
+      "mode": "common_skin",
+      "short_description": "A multifactorial inflammatory disease of the pilosebaceous unit characterized by comedones, erythematous papules, pustules, and occasional nodules or cysts.",
+      "representative_image": "common_acne.jpg",
+      "risk_level": "Low Concern",
+      "common_characteristics": [
+        "Closed comedones (whiteheads) and open comedones (blackheads)",
+        "Inflammatory erythematous papules and superficial pustules",
+        "Occasional deeper tender nodules or pseudocysts in severe grades",
+        "Commonly localized to sebum-rich areas (face, chest, upper back)",
+        "Risk of post-inflammatory hyperpigmentation or scarring"
+      ],
+      "diagnostic_approaches": [
+        "Clinical grading of lesion count and severity (PGA / GAGS scale)",
+        "Evaluation of comedonal vs. inflammatory predominant components",
+        "Assessment of contributing endocrinological factors (e.g., PCOS in females)",
+        "Screening for medication-induced acneiform eruptions"
+      ],
+      "treatment_approaches": [
+        "Topical retinoids (adapalene, tretinoin) for comedolytic regulation",
+        "Topical benzoyl peroxide and topical/oral antibiotics for inflammatory control",
+        "Oral isotretinoin for severe, recalcitrant, or scarring nodulocystic acne",
+        "Hormonal therapies (combined oral contraceptives, spironolactone)",
+        "Gentle non-comedogenic skincare and daily SPF sunscreen"
+      ],
+      "when_to_seek_care": "Consult a dermatologist if over-the-counter washes fail, if painful deep cysts or permanent scarring appear, or if acne significantly impacts emotional well-being.",
+      "sources": [
+        "American Academy of Dermatology (AAD) Acne Clinical Guidelines",
+        "British Association of Dermatologists (BAD) Acne Management Guidelines",
+        "DermNet NZ (Acne Vulgaris Reference)"
+      ],
+      "ai_supported": false,
+      "support_status": "Educational Reference Only"
+    },
+    {
+      "code": "ACD",
+      "name": "Allergic Contact Dermatitis",
+      "category_type": "Type IV Delayed Hypersensitivity Reaction",
+      "mode": "common_skin",
+      "short_description": "An immunologically mediated delayed hypersensitivity eruption occurring after cutaneous exposure to an exogenous environmental allergen.",
+      "representative_image": "common_allergic_contact_dermatitis.jpg",
+      "risk_level": "Moderate Concern",
+      "common_characteristics": [
+        "Erythematous, intensely pruritic macules, plaques, and tiny vesicles",
+        "Well-demarcated geometric or artificial distribution matching contact zone",
+        "Oozing, crusting, and scaling in acute stages; lichenification in chronic phases",
+        "Latency period of 24–72 hours following exposure to sensitized contactant"
+      ],
+      "diagnostic_approaches": [
+        "Detailed exposure history (occupational, cosmetics, jewelry, plants)",
+        "Standardized cutaneous patch testing with baseline allergen series",
+        "Repeated Open Application Testing (ROAT) for leave-on products",
+        "Differential exclusion of irritant contact dermatitis and atopic dermatitis"
+      ],
+      "treatment_approaches": [
+        "Strict identification and permanent elimination of culprit allergens",
+        "Short-course mid-to-high potency topical corticosteroids for acute flares",
+        "Cool compresses and barrier restoration creams (ceramide-based emollients)",
+        "Short course of oral corticosteroids for widespread or facial involvement",
+        "Oral antihistamines for symptomatic control of intense pruritus"
+      ],
+      "when_to_seek_care": "Seek medical care if rash is widespread, involves the eyes/face/genitalia, shows yellow crusting indicating secondary infection, or fails to resolve with trigger elimination.",
+      "sources": [
+        "American Contact Dermatitis Society (ACDS) Core Guidelines",
+        "European Society of Contact Dermatitis (ESCD)",
+        "DermNet NZ (Allergic Contact Dermatitis)"
+      ],
+      "ai_supported": false,
+      "support_status": "Educational Reference Only"
+    },
+    {
+      "code": "ECZEMA",
+      "name": "Eczema (Atopic Dermatitis)",
+      "category_type": "Chronic Pruritic Inflammatory Dermatosis",
+      "mode": "common_skin",
+      "short_description": "A chronic, relapsing, pruritic inflammatory skin disorder associated with epidermal barrier dysfunction (filaggrin mutations) and immune dysregulation.",
+      "representative_image": "common_eczema.jpg",
+      "risk_level": "Moderate Concern",
+      "common_characteristics": [
+        "Intense itch (pruritus) leading to persistent scratch-itch cycle",
+        "Erythema, scaling, excoriations, and xerosis (severe dryness)",
+        "Classic flexural distribution (antecubital and popliteal fossae) in adults",
+        "Facial and extensor involvement common in infants and young children",
+        "Lichenification (thickened leather-like skin) from chronic rubbing"
+      ],
+      "diagnostic_approaches": [
+        "Hanifin and Rajka diagnostic criteria or UK Working Party criteria",
+        "Evaluation of personal or family history of atopic triad (asthma, allergic rhinitis)",
+        "Assessment of disease severity via EASI (Eczema Area and Severity Index) or SCORAD",
+        "Bacterial swab if honey-colored crusts suggest secondary Staphylococcal infection"
+      ],
+      "treatment_approaches": [
+        "Liberal daily application of lipid-rich barrier repair emollients",
+        "Intermittent proactive topical corticosteroids or calcineurin inhibitors",
+        "Topical PDE4 inhibitors (crisaborole) or JAK inhibitors for mild-moderate cases",
+        "Systemic biologics (dupilumab, tralokinumab) or JAK inhibitors for severe disease",
+        "Bleach baths or antiseptic cleansers to reduce Staphylococcus aureus colonization"
+      ],
+      "when_to_seek_care": "Consult a dermatologist if itching disturbs sleep, skin shows oozing/pus indicating bacterial infection, or sudden punched-out sores appear (possible eczema herpeticum).",
+      "sources": [
+        "American Academy of Dermatology (AAD) Atopic Dermatitis Guidelines",
+        "National Eczema Association (NEA) Clinical Guidelines",
+        "DermNet NZ (Atopic Dermatitis)"
+      ],
+      "ai_supported": false,
+      "support_status": "Educational Reference Only"
+    },
+    {
+      "code": "IMPETIGO",
+      "name": "Impetigo",
+      "category_type": "Contagious Superficial Bacterial Infection",
+      "mode": "common_skin",
+      "short_description": "A highly contagious superficial bacterial skin infection, predominantly caused by Staphylococcus aureus and Streptococcus pyogenes, presenting with honey-colored crusted erosions.",
+      "representative_image": "common_impetigo.jpg",
+      "risk_level": "Moderate Concern",
+      "common_characteristics": [
+        "Classic non-bullous form with golden honey-colored adherence crusts",
+        "Bullous variant with flaccid, clear-to-turbid fluid-filled blisters",
+        "Erythematous base exposed upon detachment of superficial crusts",
+        "Commonly clustered around the perioral and perinasal areas of the face",
+        "Rapid spread via autoinoculation or direct physical contact"
+      ],
+      "diagnostic_approaches": [
+        "Clinical recognition of pathognomonic honey-colored crusted erosions",
+        "Bacterial Gram stain and wound culture with antibiotic sensitivity testing",
+        "Differential diagnosis against herpes simplex, contact dermatitis, and scabies"
+      ],
+      "treatment_approaches": [
+        "Topical prescription antibiotic ointment (mupirocin, retapamulin) for localized lesions",
+        "Oral beta-lactamase resistant antibiotics (cephalexin, amoxicillin-clavulanate) for widespread lesions",
+        "Gentle debridement of crusts using warm soapy soaks before ointment application",
+        "Strict hygiene measures: daily hot laundry of towels and clothes, frequent handwashing"
+      ],
+      "when_to_seek_care": "Seek prompt healthcare consultation for definitive prescription antimicrobial therapy to halt contagion and prevent post-streptococcal complications.",
+      "sources": [
+        "Infectious Diseases Society of America (IDSA) Skin Infection Guidelines",
+        "Centers for Disease Control and Prevention (CDC) Impetigo Resource",
+        "DermNet NZ (Impetigo)"
+      ],
+      "ai_supported": false,
+      "support_status": "Educational Reference Only"
+    },
+    {
+      "code": "PSORIASIS",
+      "name": "Psoriasis",
+      "category_type": "Chronic Autoimmune Erythematosquamous Disease",
+      "mode": "common_skin",
+      "short_description": "A chronic, systemic immune-mediated inflammatory dermatosis characterized by keratinocyte hyperproliferation, manifesting as well-demarcated erythematous plaques with silvery-white scales.",
+      "representative_image": "common_psoriasis.jpg",
+      "risk_level": "Moderate Concern",
+      "common_characteristics": [
+        "Sharply circumscribed erythematous plaques covered by silvery micaceous scale",
+        "Predilection for extensor surfaces (elbows, knees), scalp, and lumbosacral region",
+        "Auspitz sign (punctate bleeding upon gentle detachment of scales)",
+        "Koebner phenomenon (appearance of new psoriatic lesions along lines of trauma)",
+        "Nail changes (pitting, oil drop sign, onycholysis) in up to 50% of patients"
+      ],
+      "diagnostic_approaches": [
+        "Clinical morphologic assessment and PASI (Psoriasis Area & Severity Index) scoring",
+        "Screening for psoriatic arthritis (CASPAR criteria) in all psoriatic patients",
+        "Punch biopsy in atypical or erythrodermic variants to confirm epidermal hyperplasia",
+        "Cardiovascular and metabolic risk factor comorbidity assessment"
+      ],
+      "treatment_approaches": [
+        "Topical fixed-combination vitamin D analogues (calcipotriol) and potent corticosteroids",
+        "Narrowband UVB (NB-UVB) phototherapy or targeted excimer laser therapy",
+        "Conventional systemic agents (methotrexate, cyclosporine, acitretin)",
+        "Targeted biologic therapeutics (anti-TNF, anti-IL-17, anti-IL-23 monoclonal antibodies)",
+        "Keratolytic agents (salicylic acid) to facilitate topical medication penetration"
+      ],
+      "when_to_seek_care": "Seek specialist dermatological care for personalized treatment planning, if joint pain or stiffness occurs, or if psoriasis covers greater than 5% of body surface area.",
+      "sources": [
+        "AAD-NPF Joint Guidelines of Care for the Management of Psoriasis",
+        "National Psoriasis Foundation (NPF) Clinical Resource",
+        "DermNet NZ (Psoriasis Vulgaris)"
+      ],
+      "ai_supported": false,
+      "support_status": "Educational Reference Only"
+    },
+    {
+      "code": "RINGWORM",
+      "name": "Ringworm (Tinea Corporis)",
+      "category_type": "Superficial Dermatophyte Fungal Infection",
+      "mode": "common_skin",
+      "short_description": "A superficial dermatophytosis of glabrous skin caused by keratinophilic fungi (Trichophyton, Microsporum, or Epidermophyton), presenting as annular erythematous scaly plaques with active expanding borders.",
+      "representative_image": "common_ringworm.jpg",
+      "risk_level": "Moderate Concern",
+      "common_characteristics": [
+        "Annular (ring-shaped) erythematous plaque with central clearing",
+        "Active, raised, scaly or vesicular advancing outer perimeter",
+        "Mild to intense pruritus localized to the active lesion edge",
+        "Transmission from infected pets (zoophilic), humans (anthropophilic), or soil"
+      ],
+      "diagnostic_approaches": [
+        "Potassium hydroxide (KOH) direct microscopic mount showing septate hyphae",
+        "Fungal culture on Sabouraud dextrose agar for definitive species identification",
+        "Wood lamp fluorescence examination for select microsporum infections",
+        "Clinical differentiation from annular psoriasis, pityriasis rosea, and erythema annulare"
+      ],
+      "treatment_approaches": [
+        "Topical allylamine antifungals (terbinafine) or imidazoles (clotrimazole, ketoconazole)",
+        "Application continued for 1–2 weeks past complete visible clinical clearance",
+        "Oral antifungal therapy (terbinafine, itraconazole) for extensive or refractory cases",
+        "STRICT WARNING: Avoid topical steroid creams alone (prevents tinea incognito)",
+        "Veterinary screening and treatment of household pets to prevent reinfection"
+      ],
+      "when_to_seek_care": "Consult a doctor if lesions fail to respond to over-the-counter antifungals within 2 weeks, spread rapidly, or if systemic symptoms emerge.",
+      "sources": [
+        "Centers for Disease Control and Prevention (CDC) Fungal Diseases Resource",
+        "British Association of Dermatologists (BAD) Tinea Guidelines",
+        "DermNet NZ (Tinea Corporis)"
+      ],
+      "ai_supported": false,
+      "support_status": "Educational Reference Only"
+    },
+    {
+      "code": "SCABIES",
+      "name": "Scabies",
+      "category_type": "Parasitic Mite Infestation (Sarcoptes scabiei)",
+      "mode": "common_skin",
+      "short_description": "A contagious, intensely pruritic ectoparasitic dermatosis caused by the microscopic burrowing mite Sarcoptes scabiei var. hominis, characterized by nocturnal itch and interdigital burrows.",
+      "representative_image": "common_scabies.jpg",
+      "risk_level": "Moderate Concern",
+      "common_characteristics": [
+        "Severe, intractable pruritus, classically exacerbated at nighttime",
+        "Serpiginous, thread-like greyish-white cutaneous burrows (2–10 mm in length)",
+        "Erythematous papules, excoriations, and secondary bacterial impetiginization",
+        "Characteristic anatomic predilection: web spaces of fingers, flexor wrists, axillae, umbilicus, genitalia",
+        "Frequent history of itching in close family members or household cohabitants"
+      ],
+      "diagnostic_approaches": [
+        "Dermoscopy revealing the characteristic delta-wing jet sign of the female mite",
+        "Skin scraping of unexcoriated burrows with mineral oil microscopy for mites, ova, or scybala",
+        "Burrow ink test (pigment concentrates inside mite tunnel)",
+        "Clinical diagnosis based on characteristic distribution and nocturnal itching"
+      ],
+      "treatment_approaches": [
+        "Topical 5% permethrin cream applied from neck to toes, left on for 8–14 hours, repeated after 7 days",
+        "Oral ivermectin (200 mcg/kg) as two doses spaced 7–14 days apart",
+        "Simultaneous treatment of ALL household members and sexual partners, regardless of symptoms",
+        "Decontamination: laundering bedding, towels, and worn clothing in hot water (>60°C)",
+        "Oral antihistamines and bland moisturizers for post-scabetic itch (can persist 2–4 weeks)"
+      ],
+      "when_to_seek_care": "Seek immediate medical attention for prescription scabicide therapy. Contact tracing and simultaneous household treatment are mandatory to stop cyclical transmission.",
+      "sources": [
+        "World Health Organization (WHO) Scabies Factsheet and Guidelines",
+        "Centers for Disease Control and Prevention (CDC) Scabies Protocol",
+        "DermNet NZ (Scabies)"
+      ],
+      "ai_supported": false,
+      "support_status": "Educational Reference Only"
+    },
+    {
+      "code": "SEB_DERM",
+      "name": "Seborrheic Dermatitis",
+      "category_type": "Chronic Erythematosquamous Scalp & Facial Dermatosis",
+      "mode": "common_skin",
+      "short_description": "A common chronic, relapsing inflammatory disorder affecting sebum-rich cutaneous areas, linked to Malassezia yeast colonization, abnormal lipid composition, and individual susceptibility.",
+      "representative_image": "common_seborrheic_dermatitis.jpg",
+      "risk_level": "Low Concern",
+      "common_characteristics": [
+        "Greasy, yellowish, adherent or bran-like scales over erythematous patches",
+        "Symmetrical involvement of scalp (dandruff), eyebrows, nasolabial folds, and chest",
+        "Mild to moderate pruritus, frequently fluctuating with seasons and stress",
+        "Infantile variant (cradle cap) typically self-limiting within first year of life",
+        "Adult form follows a chronic waxing-and-waning lifelong clinical course"
+      ],
+      "diagnostic_approaches": [
+        "Clinical morphological evaluation of characteristic scale texture and anatomical zones",
+        "Exclusion of psoriasis (sebopsoriasis overlap), contact dermatitis, and rosacea",
+        "Screening for underlying conditions in severe or sudden refractory cases (HIV, Parkinsonism)"
+      ],
+      "treatment_approaches": [
+        "Medicated antifungal shampoos (ketoconazole 2%, zinc pyrithione, selenium sulfide, ciclopirox)",
+        "Topical low-potency corticosteroids or calcineurin inhibitors for acute facial erythema",
+        "Keratolytic agents (salicylic acid, coal tar) to loosen thick adherent scalp crusts",
+        "Maintenance regimen with antifungal washes once weekly to prevent relapses",
+        "Avoidance of heavy oil-based hair pomades and harsh alcohol-containing toners"
+      ],
+      "when_to_seek_care": "Consult a dermatologist if over-the-counter medicated shampoos fail, facial redness becomes bothersome, or scalp scaling becomes painful or secondarily infected.",
+      "sources": [
+        "American Academy of Dermatology (AAD) Seborrheic Dermatitis Guide",
+        "National Eczema Association (NEA) Seborrheic Dermatitis Resource",
+        "DermNet NZ (Seborrhoeic Dermatitis)"
+      ],
+      "ai_supported": false,
+      "support_status": "Educational Reference Only"
+    },
+    {
+      "code": "URTICARIA",
+      "name": "Urticaria (Hives)",
+      "category_type": "Mast-Cell Mediated Vascular Reaction",
+      "mode": "common_skin",
+      "short_description": "A vascular reaction of the dermis characterized by transient, intensely pruritic, erythematous edematous wheals that typically resolve within 24 hours without leaving residual marks.",
+      "representative_image": "common_urticaria.jpg",
+      "risk_level": "Moderate Concern",
+      "common_characteristics": [
+        "Circumscribed, raised erythematous wheals with central pallor and surrounding flare",
+        "Evanescent nature: individual wheals appear, migrate, and resolve within 24 hours",
+        "Intense pruritus (itching) or stinging/burning sensation",
+        "May be accompanied by deeper subcutaneous swelling (angioedema) in up to 40% of cases",
+        "Classified as acute (<6 weeks duration) or chronic spontaneous/inducible (>6 weeks)"
+      ],
+      "diagnostic_approaches": [
+        "Comprehensive clinical history focusing on triggers (infections, foods, medications, NSAIDs)",
+        "Evaluation of inducible physical stimuli (dermographism, cold, heat, pressure, exercise)",
+        "Complete blood count and inflammatory markers for chronic persistent urticaria",
+        "Emergency assessment to immediately rule out systemic anaphylactic features"
+      ],
+      "treatment_approaches": [
+        "First-line: Second-generation non-sedating oral H1 antihistamines (cetirizine, fexofenadine, bilastine)",
+        "Up-titration of non-sedating antihistamines up to 4-fold standard dose under medical supervision",
+        "Third-line biologic therapy (omalizumab, anti-IgE) for chronic spontaneous urticaria",
+        "Short rescue course of oral corticosteroids (3–5 days) only for severe acute exacerbations",
+        "EMERGENCY WARNING: Intramuscular epinephrine (auto-injector) for any signs of anaphylaxis"
+      ],
+      "when_to_seek_care": "EMERGENCY: Seek immediate emergency room care if hives are accompanied by throat tightness, difficulty breathing, tongue/lip swelling, or dizziness. Consult a doctor for hives lasting over 6 weeks.",
+      "sources": [
+        "EAACI/GA2LEN/EuroGuiDerm/APAAACI Urticaria Clinical Guideline",
+        "American Academy of Allergy, Asthma & Immunology (AAAAI) Urticaria Resource",
+        "DermNet NZ (Urticaria)"
+      ],
+      "ai_supported": false,
+      "support_status": "Educational Reference Only"
+    }
+  ]
+}
